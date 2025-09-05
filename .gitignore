@@ -1,0 +1,19 @@
+Library/
+Logs/
+NetworkTest/
+Temp/
+# Assets/
+# Packages/
+# ProjectSettings/
+# UserSettings/
+
+# Visual Studio / Rider
+.vs/
+.vscode/
+*.sln
+*.csproj
+*.unityproj
+*.suo
+Assets/Resources/Fonts/LXGWWenKaiMono-Light SDF.asset
+Assets/Resources/Fonts/LXGWWenKaiMono-Medium SDF.asset
+Assets/Resources/Fonts/LXGWWenKaiMono-Regular SDF.asset
