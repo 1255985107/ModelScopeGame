@@ -55,7 +55,6 @@ public class PlayerController : MonoBehaviour
         HandleMovement();
         HandleRunSound();
         CheckDeath();
-        UpdateWindSound();
         CheckSuccessfulJump();
     }
 
@@ -70,9 +69,8 @@ public class PlayerController : MonoBehaviour
     {
         if (!canMove) return;
 
-        // 优化后的输入检测
+        // 输入检测
         float moveInput = 0f;
-        //Debug.Log($"Checking input: {KeymapManager.Singleton.IsReady}");
         if (KeymapManager.Singleton != null && KeymapManager.Singleton.IsReady)
         {
             if (KeymapManager.Singleton.IsKeyHeld(KeymapManager.Function.MoveLeft))
@@ -128,11 +126,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void UpdateWindSound()
-    {
-        // 风声建议用独立AudioSource循环播放，这里仅做示例
-        // 可根据需要扩展为独立风声AudioSource
-    }
+
 
     private void CheckSuccessfulJump()
     {

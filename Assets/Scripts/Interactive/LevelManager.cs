@@ -21,6 +21,7 @@ public class LevelManager : MonoBehaviour
 
     [Header("Act Control")]
     private bool isGameOver = false;
+    private bool hasLearnedJump = false; // 新增：是否已学会跳跃
 
     void Start()
     {
@@ -60,6 +61,7 @@ public class LevelManager : MonoBehaviour
         PlayBGM(bgmChantClip);
         playerController.DisableJump();
         playerController.EnableMovement();
+        hasLearnedJump = false; // 初始化为未学会跳跃
     }
 
     // 只能行走阶段触发
@@ -78,6 +80,8 @@ public class LevelManager : MonoBehaviour
         StopBGM();
         PlayBGM(bgmCollapseClip);
         playerController.EnableJump();
+        hasLearnedJump = true; // 标记已学会跳跃
+        Debug.Log("玩家已学会跳跃，跳跃功能已启用");
         if (jumpTutorialUI != null)
             jumpTutorialUI.SetActive(true);
         Debug.Log("流程：跳跃教学阶段");
@@ -88,7 +92,7 @@ public class LevelManager : MonoBehaviour
     // 最终坠落触发
     public void FinalFallTrigger()
     {
-        PlaySFX(sfxArcClip);
+        //PlaySFX(sfxArcClip);
         playerController.DisableJump();
         playerController.DisableMovement();
         Debug.Log("流程：最终坠落阶段");
@@ -109,8 +113,8 @@ public class LevelManager : MonoBehaviour
     {
         if (isGameOver) return;
 
-        playerController.DisableMovement();
-        playerController.DisableJump();
+        //playerController.DisableMovement();
+        //playerController.DisableJump();
     }
 
     IEnumerator ResetLevelAfterDelay(float delay)
@@ -160,5 +164,17 @@ public class LevelManager : MonoBehaviour
             JumpTutorialTrigger();
         }
         Debug.Log("Tutorial Zone Completed!");
+    }
+
+    // 在Update或合适时机动态控制跳跃权限
+    void Update()
+    {
+        if (playerController != null)
+        {
+            if (hasLearnedJump)
+                playerController.EnableJump();
+            else
+                playerController.DisableJump();
+        }
     }
 }
