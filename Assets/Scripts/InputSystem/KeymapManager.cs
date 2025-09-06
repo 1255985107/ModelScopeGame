@@ -34,6 +34,7 @@ public class KeymapManager : MonoBehaviour
         { Function.MoveDown, Key.S },
         { Function.MoveLeft, Key.A },
         { Function.MoveRight, Key.D },
+        { Function.Interact, Key.E },
         { Function.ExitMenu, Key.Escape }
     };
 
