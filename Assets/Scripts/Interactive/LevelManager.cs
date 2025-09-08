@@ -7,21 +7,21 @@ public class LevelManager : MonoBehaviour
     [Header("References")]
     [SerializeField] private PlayerController playerController;
     [SerializeField] private GameObject[] platformsToCollapse;
-    [SerializeField] private GameObject deathUI;       // ËÀÍö½çÃæ
-    [SerializeField] private GameObject jumpTutorialUI; // ÌøÔ¾½Ì³ÌUI
-    [SerializeField] private GameObject walkTutorialUI; // ĞĞ×ß½Ì³ÌUI
+    [SerializeField] private GameObject deathUI;       // æ­»äº¡ç•Œé¢
+    [SerializeField] private GameObject jumpTutorialUI; // è·³è·ƒæ•™ç¨‹UI
+    [SerializeField] private GameObject walkTutorialUI; // è¡Œèµ°æ•™ç¨‹UI
 
     [Header("Audio Clips")]
-    [SerializeField] private AudioClip bgmChantClip;        // ÔÆ¶Ë³ÇÄş¾²Ê¥Ó½£¨±³¾°ÒôÀÖ£¬½Ì³Ì½×¶Î£©
-    [SerializeField] private AudioClip bgmCollapseClip;     // ±ÀËú±ä×àÇú£¨±³¾°ÒôÀÖ£¬±ÀËú½×¶Î£©
-    [SerializeField] private AudioClip sfxDataBreakClip;    // Êı¾İËéÁÑÉù£¨Æ½Ì¨±ÀËúÊ±²¥·ÅµÄÒôĞ§£©
-    [SerializeField] private AudioClip sfxArcClip;          // µç»¡Éù£¨×îÖÕ×¹Âä»ò¿¿½ü¶ÏÁÑµçÏßÊ±²¥·Å£©
-    [SerializeField] private AudioClip windClip;            // ·çÉùÒôĞ§£¨»·¾³·çÉù£¬¿ÉÓÃÓÚ×¹Âä»ò¸ß¿Õ³¡¾°£©
-    private AudioSource audioSource; // ÓÃÓÚ²¥·ÅÒôĞ§
+    [SerializeField] private AudioClip bgmChantClip;        // äº‘ç«¯åŸå®é™åœ£å’ï¼ˆèƒŒæ™¯éŸ³ä¹ï¼Œæ•™ç¨‹é˜¶æ®µï¼‰
+    [SerializeField] private AudioClip bgmCollapseClip;     // å´©å¡Œå˜å¥æ›²ï¼ˆèƒŒæ™¯éŸ³ä¹ï¼Œå´©å¡Œé˜¶æ®µï¼‰
+    [SerializeField] private AudioClip sfxDataBreakClip;    // æ•°æ®ç¢è£‚å£°ï¼ˆå¹³å°å´©å¡Œæ—¶æ’­æ”¾çš„éŸ³æ•ˆï¼‰
+    [SerializeField] private AudioClip sfxArcClip;          // ç”µå¼§å£°ï¼ˆæœ€ç»ˆå è½æˆ–é è¿‘æ–­è£‚ç”µçº¿æ—¶æ’­æ”¾ï¼‰
+    [SerializeField] private AudioClip windClip;            // é£å£°éŸ³æ•ˆï¼ˆç¯å¢ƒé£å£°ï¼Œå¯ç”¨äºå è½æˆ–é«˜ç©ºåœºæ™¯ï¼‰
+    private AudioSource audioSource; // ç”¨äºæ’­æ”¾éŸ³æ•ˆ
 
     [Header("Act Control")]
     private bool isGameOver = false;
-    private bool hasLearnedJump = false; // ĞÂÔö£ºÊÇ·ñÒÑÑ§»áÌøÔ¾
+    private bool hasLearnedJump = false; // æ–°å¢ï¼šæ˜¯å¦å·²å­¦ä¼šè·³è·ƒ
 
     void Start()
     {
@@ -57,45 +57,45 @@ public class LevelManager : MonoBehaviour
 
     private void InitializeLevel()
     {
-        // ³õÊ¼½×¶Î£ºÖ»ÄÜĞĞ×ß
+        // åˆå§‹é˜¶æ®µï¼šåªèƒ½è¡Œèµ°
         PlayBGM(bgmChantClip);
         playerController.DisableJump();
         playerController.EnableMovement();
-        hasLearnedJump = false; // ³õÊ¼»¯ÎªÎ´Ñ§»áÌøÔ¾
+        hasLearnedJump = false; // åˆå§‹åŒ–ä¸ºæœªå­¦ä¼šè·³è·ƒ
     }
 
-    // Ö»ÄÜĞĞ×ß½×¶Î´¥·¢
+    // åªèƒ½è¡Œèµ°é˜¶æ®µè§¦å‘
     public void OnlyWalkTrigger()
     {
         PlayBGM(bgmCollapseClip);
         playerController.DisableJump();
         if (walkTutorialUI != null)
             walkTutorialUI.SetActive(false);
-        Debug.Log("Á÷³Ì£ºÖ»ÄÜĞĞ×ß½×¶Î");
+        Debug.Log("æµç¨‹ï¼šåªèƒ½è¡Œèµ°é˜¶æ®µ");
     }
 
-    // ÌøÔ¾½ÌÑ§½×¶Î´¥·¢
+    // è·³è·ƒæ•™å­¦é˜¶æ®µè§¦å‘
     public void JumpTutorialTrigger()
     {
         StopBGM();
         PlayBGM(bgmCollapseClip);
         playerController.EnableJump();
-        hasLearnedJump = true; // ±ê¼ÇÒÑÑ§»áÌøÔ¾
-        Debug.Log("Íæ¼ÒÒÑÑ§»áÌøÔ¾£¬ÌøÔ¾¹¦ÄÜÒÑÆôÓÃ");
+        hasLearnedJump = true; // æ ‡è®°å·²å­¦ä¼šè·³è·ƒ
+        Debug.Log("ç©å®¶å·²å­¦ä¼šè·³è·ƒï¼Œè·³è·ƒåŠŸèƒ½å·²å¯ç”¨");
         if (jumpTutorialUI != null)
             jumpTutorialUI.SetActive(true);
-        Debug.Log("Á÷³Ì£ºÌøÔ¾½ÌÑ§½×¶Î");
+        Debug.Log("æµç¨‹ï¼šè·³è·ƒæ•™å­¦é˜¶æ®µ");
     }
 
 
 
-    // ×îÖÕ×¹Âä´¥·¢
+    // æœ€ç»ˆå è½è§¦å‘
     public void FinalFallTrigger()
     {
         //PlaySFX(sfxArcClip);
         playerController.DisableJump();
         playerController.DisableMovement();
-        Debug.Log("Á÷³Ì£º×îÖÕ×¹Âä½×¶Î");
+        Debug.Log("æµç¨‹ï¼šæœ€ç»ˆå è½é˜¶æ®µ");
     }
 
     private void HandlePlayerDeath()
@@ -123,32 +123,35 @@ public class LevelManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    // ÒôĞ§²¥·Å¸¨Öú·½·¨
+    // éŸ³æ•ˆæ’­æ”¾è¾…åŠ©æ–¹æ³•
     private void PlayBGM(AudioClip clip)
     {
-        if (audioSource != null)
-        {
-            audioSource.loop = true;
-            audioSource.clip = clip;
-            audioSource.Play();
-        }
+        AudioManager.Singleton.PlayMusic(clip);
+        // if (audioSource != null)
+        // {
+        //     audioSource.loop = true;
+        //     audioSource.clip = clip;
+        //     audioSource.Play();
+        // }
     }
 
     private void StopBGM()
     {
-        if (audioSource != null)
-        {
-            audioSource.Stop();
-            audioSource.clip = null;
-        }
+        AudioManager.Singleton.StopMusic();
+
+        // if (audioSource != null)
+        // {
+        //     audioSource.Stop();
+        //     audioSource.clip = null;
+        // }
     }
 
     private void PlaySFX(AudioClip clip)
     {
-        if (audioSource != null && clip != null)
-        {
-            audioSource.PlayOneShot(clip);
-        }
+        // if (audioSource != null && clip != null)
+        // {
+        //     audioSource.PlayOneShot(clip);
+        // }
     }
 
     public void OnTriggerZoneActivated()
@@ -166,7 +169,7 @@ public class LevelManager : MonoBehaviour
         Debug.Log("Tutorial Zone Completed!");
     }
 
-    // ÔÚUpdate»òºÏÊÊÊ±»ú¶¯Ì¬¿ØÖÆÌøÔ¾È¨ÏŞ
+    // åœ¨Updateæˆ–åˆé€‚æ—¶æœºåŠ¨æ€æ§åˆ¶è·³è·ƒæƒé™
     void Update()
     {
         if (playerController != null)

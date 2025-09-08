@@ -6,7 +6,7 @@ using UnityEngine.Audio;
 /// </summary>
 public class AudioManager : MonoBehaviour
 {
-    public static AudioManager Instance { get; private set; }
+    public static AudioManager Singleton { get; private set; }
     
     [Header("Audio Mixer")]
     [SerializeField] private AudioMixer audioMixer;
@@ -19,6 +19,10 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioClip buttonClickSound;
     [SerializeField] private AudioClip buttonHoverSound;
     
+    [Header("Background Music")]
+    [SerializeField] private AudioClip backgroundMusic;
+    [SerializeField] private bool playMusicOnStart = true;
+    
     // Audio mixer parameter names (should match SettingsMenuManager)
     private const string MUSIC_VOLUME_PARAM = "MusicVolume";
     private const string SFX_VOLUME_PARAM = "SFXVolume";
@@ -26,9 +30,9 @@ public class AudioManager : MonoBehaviour
     void Awake()
     {
         // Singleton pattern
-        if (Instance == null)
+        if (Singleton == null)
         {
-            Instance = this;
+            Singleton = this;
             DontDestroyOnLoad(gameObject);
             InitializeAudioSources();
         }
@@ -40,36 +44,32 @@ public class AudioManager : MonoBehaviour
     
     void InitializeAudioSources()
     {
+        Debug.Assert(audioMixer != null, "AudioManager: Audio Mixer is not assigned!");
         // Create audio sources if not assigned
         if (musicSource == null)
         {
+            Debug.Log("AudioManager: Music Source not assigned, creating one.");
             GameObject musicObj = new GameObject("MusicSource");
             musicObj.transform.SetParent(transform);
             musicSource = musicObj.AddComponent<AudioSource>();
             musicSource.loop = true;
             musicSource.playOnAwake = false;
+            musicSource.outputAudioMixerGroup = audioMixer.FindMatchingGroups("Music")[0];
         }
-        
         if (sfxSource == null)
         {
+            Debug.Log("AudioManager: SFX Source not assigned, creating one.");
             GameObject sfxObj = new GameObject("SFXSource");
             sfxObj.transform.SetParent(transform);
             sfxSource = sfxObj.AddComponent<AudioSource>();
             sfxSource.loop = false;
             sfxSource.playOnAwake = false;
+            sfxSource.outputAudioMixerGroup = audioMixer.FindMatchingGroups("SFX")[0];
         }
-        
-        // Assign audio mixer groups if available
-        if (audioMixer != null)
+        // Play background music on start if enabled
+        if (playMusicOnStart && backgroundMusic != null)
         {
-            var musicGroup = audioMixer.FindMatchingGroups("Music");
-            var sfxGroup = audioMixer.FindMatchingGroups("SFX");
-            
-            if (musicGroup.Length > 0)
-                musicSource.outputAudioMixerGroup = musicGroup[0];
-            
-            if (sfxGroup.Length > 0)
-                sfxSource.outputAudioMixerGroup = sfxGroup[0];
+            PlayMusic(backgroundMusic);
         }
     }
     
@@ -121,6 +121,34 @@ public class AudioManager : MonoBehaviour
         }
     }
     
+    /// <summary>
+    /// 切换背景音乐
+    /// </summary>
+    /// <param name="newClip">新的音乐剪辑</param>
+    public void ChangeMusic(AudioClip newClip)
+    {
+        if (musicSource != null && newClip != null)
+        {
+            bool wasPlaying = musicSource.isPlaying;
+            musicSource.Stop();
+            musicSource.clip = newClip;
+            if (wasPlaying)
+            {
+                musicSource.Play();
+            }
+            Debug.Log($"Music changed to {newClip.name}");
+        }
+    }
+    
+    /// <summary>
+    /// 检查音乐是否正在播放
+    /// </summary>
+    /// <returns>是否正在播放</returns>
+    public bool IsMusicPlaying()
+    {
+        return musicSource != null && musicSource.isPlaying;
+    }
+    
     #endregion
     
     #region SFX Methods
@@ -129,7 +157,7 @@ public class AudioManager : MonoBehaviour
     /// 播放音效
     /// </summary>
     /// <param name="clip">音效剪辑</param>
-    public void PlaySFX(AudioClip clip)
+    private void PlaySFX(AudioClip clip)
     {
         if (sfxSource != null && clip != null)
         {
@@ -140,7 +168,7 @@ public class AudioManager : MonoBehaviour
     /// <summary>
     /// 播放按钮点击音效
     /// </summary>
-    public void PlayButtonClick()
+    private void PlayButtonClick()
     {
         PlaySFX(buttonClickSound);
     }
@@ -148,7 +176,7 @@ public class AudioManager : MonoBehaviour
     /// <summary>
     /// 播放按钮悬停音效
     /// </summary>
-    public void PlayButtonHover()
+    private void PlayButtonHover()
     {
         PlaySFX(buttonHoverSound);
     }
