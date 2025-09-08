@@ -4,33 +4,34 @@ using UnityEngine.Events;
 public class PlayerController : MonoBehaviour
 {
     [Header("Movement Settings")]
-    [SerializeField] private float walkSpeed = 2f;        // ÂýËÙÐÐ×ßËÙ¶È
-    [SerializeField] private float jumpForce = 5f;        // ÌøÔ¾Á¦¶È
-    [SerializeField] private float fallMultiplier = 2.5f; // ×¹Âä¼ÓËÙ¶È±¶Êý
+    [SerializeField] private float walkSpeed = 2f;        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ù¶ï¿½
+    [SerializeField] private float jumpForce = 5f;        // ï¿½ï¿½Ô¾ï¿½ï¿½ï¿½ï¿½
+    [SerializeField] private float fallMultiplier = 2.5f; // ×¹ï¿½ï¿½ï¿½ï¿½Ù¶È±ï¿½ï¿½ï¿½
     
     [Header("Ground Check")]
-    [SerializeField] private LayerMask groundLayer;       // µØÃæ²ã
+    [SerializeField] private LayerMask groundLayer;       // ï¿½ï¿½ï¿½ï¿½ï¿½
     [SerializeField] private float groundCheckRadius = 0.2f;
-    [SerializeField] private float deathYThreshold = -10f; // ËÀÍö¸ß¶ÈãÐÖµ
+    [SerializeField] private float deathYThreshold = -10f; // ï¿½ï¿½ï¿½ï¿½ï¿½ß¶ï¿½ï¿½ï¿½Öµ
     
     [Header("Audio")]
-    [SerializeField] private AudioClip jumpAudioClip;  // ÌøÔ¾ÒôÐ§
-    [SerializeField] private AudioClip windAudioClip;  // ·çÉùÒôÐ§
-    [SerializeField] private AudioClip fallAudioClip;  // µøÂäÒôÐ§
-    [SerializeField] private AudioClip runAudioClip;   // ÅÜ²½ÒôÐ§
-    private AudioSource audioSource;                   // ÓÃÓÚ²¥·ÅÒôÐ§
-    private AudioSource runAudioSource;                   // ÓÃÓÚÑ­»·²¥·ÅÅÜ²½ÒôÐ§
+    [SerializeField] private AudioClip jumpAudioClip;  // ï¿½ï¿½Ô¾ï¿½ï¿½Ð§
+    [SerializeField] private AudioClip windAudioClip;  // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð§
+    [SerializeField] private AudioClip fallAudioClip;  // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð§
+    [SerializeField] private AudioClip runAudioClip;   // ï¿½Ü²ï¿½ï¿½ï¿½Ð§
+    private AudioSource audioSource;                   // ï¿½ï¿½ï¿½Ú²ï¿½ï¿½ï¿½ï¿½ï¿½Ð§
+    private AudioSource runAudioSource;                   // ï¿½ï¿½ï¿½ï¿½Ñ­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü²ï¿½ï¿½ï¿½Ð§
 
     [Header("Events")]
-    public UnityEvent onDeath;           // ËÀÍöÊÂ¼þ
-    public UnityEvent onSuccessfulJump;  // ³É¹¦ÌøÔ¾ÊÂ¼þ
+    public UnityEvent onDeath;           // ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½
+    public UnityEvent onSuccessfulJump;  // ï¿½É¹ï¿½ï¿½ï¿½Ô¾ï¿½Â¼ï¿½
+    public UnityEvent onInteract;        // ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½
     
     private Rigidbody2D rb;
     public bool isGrounded;
     private bool canJump = true;
     private bool canMove = true;
     private float lastJumpTime;
-    private const float SUCCESSFUL_JUMP_HEIGHT = 2f; // ÅÐ¶¨³É¹¦ÌøÔ¾µÄ¸ß¶È
+    private const float SUCCESSFUL_JUMP_HEIGHT = 2f; // ï¿½Ð¶ï¿½ï¿½É¹ï¿½ï¿½ï¿½Ô¾ï¿½Ä¸ß¶ï¿½
     private float initialY;
     private bool hasTriggeredJumpSuccess;
 
@@ -42,7 +43,7 @@ public class PlayerController : MonoBehaviour
         if (audioSource == null)
             audioSource = gameObject.AddComponent<AudioSource>();
 
-        // ÅÜ²½ÒôÐ§×¨ÓÃAudioSource
+        // ï¿½Ü²ï¿½ï¿½ï¿½Ð§×¨ï¿½ï¿½AudioSource
         runAudioSource = gameObject.AddComponent<AudioSource>();
         runAudioSource.clip = runAudioClip;
         runAudioSource.loop = true;
@@ -69,7 +70,7 @@ public class PlayerController : MonoBehaviour
     {
         if (!canMove) return;
 
-        // ÊäÈë¼ì²â
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         float moveInput = 0f;
         if (KeymapManager.Singleton != null && KeymapManager.Singleton.IsReady)
         {
@@ -81,7 +82,7 @@ public class PlayerController : MonoBehaviour
 
         rb.velocity = new Vector2(moveInput * walkSpeed, rb.velocity.y);
 
-        // ÌøÔ¾¿ØÖÆ
+        // ï¿½ï¿½Ô¾ï¿½ï¿½ï¿½ï¿½
         if (KeymapManager.Singleton != null && KeymapManager.Singleton.IsReady &&
             KeymapManager.Singleton.IsKeyPressed(KeymapManager.Function.MoveUp) && isGrounded && canJump)
         {
@@ -95,7 +96,14 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        // ×¹Âä¼ÓËÙ
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        if (KeymapManager.Singleton != null && KeymapManager.Singleton.IsReady &&
+            KeymapManager.Singleton.IsKeyPressed(KeymapManager.Function.Interact))
+        {
+            onInteract?.Invoke();
+        }
+
+        // ×¹ï¿½ï¿½ï¿½ï¿½ï¿½
         if (rb.velocity.y < 0)
         {
             rb.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
@@ -149,7 +157,7 @@ public class PlayerController : MonoBehaviour
             {
                 audioSource.PlayOneShot(fallAudioClip);
             }
-            //Í£Ö¹×¹Âä
+            //Í£Ö¹×¹ï¿½ï¿½
             rb.velocity = Vector2.zero;
             rb.gravityScale = 0f;
             onDeath?.Invoke();
