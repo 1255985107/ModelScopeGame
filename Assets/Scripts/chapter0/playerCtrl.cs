@@ -13,7 +13,7 @@ public class playerCtrl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -36,7 +36,7 @@ public class playerCtrl : MonoBehaviour
         }
     }
 
-    private void OnCollisionExit(Collision collision)
+    private void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.collider.CompareTag("Ground"))
         {
@@ -46,6 +46,7 @@ public class playerCtrl : MonoBehaviour
 
     void FixedUpdate()
     {
-        rb.velocity = new Vector2(horizontalInput * moveSpeed, rb.velocity.y);
+        if (isGrounded)
+            rb.velocity = new Vector2(horizontalInput * moveSpeed, rb.velocity.y);
     }
 }
