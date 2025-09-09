@@ -24,13 +24,13 @@ public class MovingBookPlatform : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         // 检查进来的是否是Player，并且平台尚未被触发过
-        Debug.Log("触发器检测到碰撞体: " + other.name+ hasBeenTriggered);
+        //Debug.Log("触发器检测到碰撞体: " + other.name+ hasBeenTriggered);
         if (other.CompareTag("Player") && !hasBeenTriggered)
         {
             // 标记为已触发，防止重复启动
             hasBeenTriggered = true;
 
-            Debug.Log("玩家已触发平台！");
+            //Debug.Log("玩家已触发平台！");
 
             // 启动移动协程，并将玩家的Transform传递过去
             StartCoroutine(MoveRoutine(other.transform));

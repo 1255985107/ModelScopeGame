@@ -12,7 +12,7 @@ public class ActivateMonstersTrigger : MonoBehaviour
             // 标记为已触发，确保这个逻辑只执行一次
             hasBeenTriggered = true;
 
-            Debug.Log("玩家触发陷阱，所有怪物开始下落！");
+            //Debug.Log("玩家触发陷阱，所有怪物开始下落！");
 
             // 1. 在整个场景中，找到所有带 "Monster" 标签的游戏对象
             GameObject[] allMonsters = GameObject.FindGameObjectsWithTag("Monster");

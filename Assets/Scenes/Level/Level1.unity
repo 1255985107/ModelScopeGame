@@ -2942,7 +2942,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88537072e5af175428fbf34012a8f565, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextSceneName: CutScene2
+  nextSceneName: CutScene6
   nextSceneIndex: -1
 --- !u!61 &2049875345
 BoxCollider2D:

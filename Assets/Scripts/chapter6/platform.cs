@@ -22,7 +22,7 @@ public class BreakablePlatformAnimated : MonoBehaviour
             isCracked = true;
             animator.SetTrigger("crack"); // 触发Crack动画
             associatedMonster = collision.gameObject; 
-            Debug.Log("平台开裂！");
+            //Debug.Log("平台开裂！");
         }
 
         // 2. 玩家碰到平台，且平台已经破裂
@@ -33,11 +33,11 @@ public class BreakablePlatformAnimated : MonoBehaviour
             if (associatedMonster != null)
             {
                 associatedMonster.SetActive(false);
-                Debug.Log("关联的怪物一起消失了！");
+                //Debug.Log("关联的怪物一起消失了！");
             }
             gameObject.SetActive(false);
             // 打印日志方便调试
-            Debug.Log("平台破碎！玩家从任意方向接触！");
+            //Debug.Log("平台破碎！玩家从任意方向接触！");
         }
     }
 
