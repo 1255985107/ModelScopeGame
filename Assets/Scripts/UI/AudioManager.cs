@@ -166,6 +166,15 @@ public class AudioManager : MonoBehaviour
     }
     
     /// <summary>
+    /// 公共方法：播放音效
+    /// </summary>
+    /// <param name="clip">音效剪辑</param>
+    public void PlaySFXClip(AudioClip clip)
+    {
+        PlaySFX(clip);
+    }
+    
+    /// <summary>
     /// 播放按钮点击音效
     /// </summary>
     private void PlayButtonClick()
