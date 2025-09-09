@@ -357,7 +357,8 @@ public class SettingsMenuManager : MonoBehaviour
     {
         if (settingsPanel != null)
         {
-            mainMenuManager.DisableButtons();
+            if (mainMenuManager != null)
+                mainMenuManager.DisableButtons();
             gameObject.SetActive(true);
             LoadSettings();
         }
@@ -367,7 +368,8 @@ public class SettingsMenuManager : MonoBehaviour
     {
         if (settingsPanel != null)
         {
-            mainMenuManager.EnableButtons();
+            if (mainMenuManager != null)
+                mainMenuManager.EnableButtons();
             gameObject.SetActive(false);
         }
     }

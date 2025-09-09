@@ -103,10 +103,19 @@ public class LevelManager : MonoBehaviour
         if (isGameOver) return;
         isGameOver = true;
 
-        if (deathUI != null)
-            deathUI.SetActive(true);
+        // 使用新的 UIManager 显示游戏结束界面
+        if (UIManager.Instance != null)
+        {
+            UIManager.Instance.ShowGameOver("任务失败", "你坠落了，要重新开始吗？");
+        }
+        else
+        {
+            // 备用方案：使用原来的 deathUI
+            if (deathUI != null)
+                deathUI.SetActive(true);
 
-        StartCoroutine(ResetLevelAfterDelay(2f));
+            StartCoroutine(ResetLevelAfterDelay(2f));
+        }
     }
 
     private void HandleSuccessfulJump()

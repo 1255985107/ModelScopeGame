@@ -40,7 +40,7 @@ public class MainMenuManager : MonoBehaviour
     {
         Debug.Log("Start Button Clicked");
         // Add logic to start the game
-        SceneManager.LoadScene("Level1");
+        SceneManager.LoadScene("Level2");
     }
 
     void OnSettingsButtonClicked()
