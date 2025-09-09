@@ -46,7 +46,7 @@ public class AnimatorTrigger : MonoBehaviour
         }
         else
         {
-            playerController.onDeath.AddListener(OnDeath);
+            //playerController.onDeath.AddListener(OnDeath);
         }
 
         if (animator == null)

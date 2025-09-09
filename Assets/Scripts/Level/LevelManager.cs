@@ -7,7 +7,6 @@ public class LevelManager : MonoBehaviour
     [Header("References")]
     [SerializeField] private PlayerController playerController;
     [SerializeField] private GameObject[] platformsToCollapse;
-    [SerializeField] private GameObject deathUI;       // 死亡界面
     [SerializeField] private GameObject jumpTutorialUI; // 跳跃教程UI
     [SerializeField] private GameObject walkTutorialUI; // 行走教程UI
 
@@ -47,9 +46,6 @@ public class LevelManager : MonoBehaviour
             playerSpawnPoint = spawnPoint.transform;
         }
 
-        if (deathUI != null)
-            deathUI.SetActive(false);
-
         if (jumpTutorialUI != null)
             jumpTutorialUI.SetActive(false);
 
@@ -62,7 +58,6 @@ public class LevelManager : MonoBehaviour
     {
         if (playerController != null)
         {
-            playerController.onDeath.AddListener(HandlePlayerDeath);
             playerController.onSuccessfulJump.AddListener(HandleSuccessfulJump);
         }
     }
@@ -112,18 +107,6 @@ public class LevelManager : MonoBehaviour
         Debug.Log("流程：最终坠落阶段");
     }
 
-    private void HandlePlayerDeath()
-    {
-        if (isGameOver) return;
-        isGameOver = true;
-
-        if (deathUI != null)
-            deathUI.SetActive(true);
-
-        // 死亡音效由PlayerController自己播放，这里不需要重复播放
-        
-        StartCoroutine(RespawnPlayerAfterDelay(respawnDelay));
-    }
 
     private void RespawnPlayer()
     {
@@ -148,9 +131,6 @@ public class LevelManager : MonoBehaviour
         if (hasLearnedJump)
             playerController.EnableJump();
 
-        // 隐藏死亡UI
-        if (deathUI != null)
-            deathUI.SetActive(false);
 
         // 重置游戏状态
         isGameOver = false;

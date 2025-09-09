@@ -4,14 +4,13 @@ using UnityEngine.Events;
 public class PlayerController : MonoBehaviour
 {
     [Header("Movement Settings")]
-    [SerializeField] private float walkSpeed = 2f;        // ���������ٶ�
-    [SerializeField] private float jumpForce = 5f;        // ��Ծ����
+    [SerializeField] private float walkSpeed = 7f;        // ���������ٶ�
+    [SerializeField] private float jumpForce = 7f;        // ��Ծ����
     [SerializeField] private float fallMultiplier = 2.5f; // ׹����ٶȱ���
     
     [Header("Ground Check")]
     [SerializeField] private LayerMask groundLayer;       // �����
     [SerializeField] private float groundCheckRadius = 0.2f;
-    [SerializeField] private float deathYThreshold = -10f; // �����߶���ֵ
     
     [Header("Audio")]
     [SerializeField] private AudioClip jumpAudioClip;  // ��Ծ��Ч
@@ -22,12 +21,11 @@ public class PlayerController : MonoBehaviour
     private AudioSource runAudioSource;                   // ����ѭ�������ܲ���Ч
 
     [Header("Events")]
-    public UnityEvent onDeath;           // �����¼�
     public UnityEvent onSuccessfulJump;  // �ɹ���Ծ�¼�
     public UnityEvent onInteract;        // �����¼�
     
     private Rigidbody2D rb;
-    public bool isGrounded;
+    private bool isGrounded;
     private bool canJump = true;
     private bool canMove = true;
     private float lastJumpTime;
@@ -55,22 +53,29 @@ public class PlayerController : MonoBehaviour
         CheckGrounded();
         HandleMovement();
         HandleRunSound();
-        CheckDeath();
         CheckSuccessfulJump();
     }
 
     private void CheckGrounded()
     {
         Collider2D playerCollider = GetComponent<Collider2D>();
-        float playerBottom = playerCollider.bounds.min.y;
-        isGrounded = Physics2D.OverlapCircle(new Vector2(transform.position.x, playerBottom - 0.1f), groundCheckRadius, groundLayer);
+        if (playerCollider == null) return;
+
+        // 使用 BoxCast 进行地面检测
+        Vector2 boxCenter = new Vector2(playerCollider.bounds.center.x, playerCollider.bounds.min.y);
+
+        Vector2 boxSize = new Vector2(playerCollider.bounds.size.x * 0.9f, 0.1f); float castDistance = 0.1f;
+
+        RaycastHit2D hit = Physics2D.BoxCast(boxCenter, boxSize, 0f, Vector2.down, castDistance, groundLayer);
+
+        isGrounded = hit.collider != null;
+
     }
 
     private void HandleMovement()
     {
         if (!canMove) return;
 
-        // ������
         float moveInput = 0f;
         if (KeymapManager.Singleton != null && KeymapManager.Singleton.IsReady)
         {
@@ -82,7 +87,6 @@ public class PlayerController : MonoBehaviour
 
         rb.velocity = new Vector2(moveInput * walkSpeed, rb.velocity.y);
 
-        // ��Ծ����
         if (KeymapManager.Singleton != null && KeymapManager.Singleton.IsReady &&
             KeymapManager.Singleton.IsKeyPressed(KeymapManager.Function.MoveUp) && isGrounded && canJump)
         {
@@ -96,7 +100,6 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        // ������
         if (KeymapManager.Singleton != null && KeymapManager.Singleton.IsReady &&
             KeymapManager.Singleton.IsKeyPressed(KeymapManager.Function.Interact))
         {
@@ -149,20 +152,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void CheckDeath()
-    {
-        if (transform.position.y < deathYThreshold)
-        {
-            if (fallAudioClip != null)
-            {
-                audioSource.PlayOneShot(fallAudioClip);
-            }
-            //ֹͣ׹��
-            rb.velocity = Vector2.zero;
-            rb.gravityScale = 0f;
-            onDeath?.Invoke();
-        }
-    }
 
     public void DisableJump()
     {
