@@ -35,7 +35,11 @@ public class island_ctrl : MonoBehaviour
 
     IEnumerator BreakIsland()
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(2f);
+        if (warningUI != null)
+            warningUI.SetActive(true);
+
+        yield return new WaitForSeconds(2f);
 
         if (fullIsland != null)
             Destroy(fullIsland);
@@ -47,8 +51,7 @@ public class island_ctrl : MonoBehaviour
 
         isBroken = true;
 
-        if (warningUI != null)
-            warningUI.SetActive(true);
+        
     }
 
     // Update is called once per frame

@@ -17,6 +17,15 @@ Temp/
 Assets/Resources/Fonts/*.asset
 Assets/Resources/Fonts/*.asset.meta
 
+UserSettings/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+
 # Video files
 *.mp4
 *.mov

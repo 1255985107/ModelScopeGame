@@ -173,7 +173,17 @@ public class AudioManager : MonoBehaviour
     {
         PlaySFX(clip);
     }
-    
+
+    public void PlayVoiceClip(AudioClip clip)
+    {
+        if (sfxSource != null && clip != null)
+        {
+            sfxSource.Stop();        // 先停止当前语音
+            sfxSource.clip = clip;   // 设置新的剪辑
+            sfxSource.Play();        // 播放
+        }
+    }
+
     /// <summary>
     /// 播放按钮点击音效
     /// </summary>
@@ -271,6 +281,17 @@ public class AudioManager : MonoBehaviour
         }
         return 1f;
     }
-    
+
     #endregion
+
+    /// <summary>
+    /// 停止当前正在播放的音效
+    /// </summary>
+    public void StopCurrentSFX()
+    {
+        if (sfxSource != null && sfxSource.isPlaying)
+        {
+            sfxSource.Stop();
+        }
+    }
 }
