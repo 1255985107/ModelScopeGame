@@ -2885,7 +2885,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 9893e7fbf0a3f5f49b3f3bb345d3a9e3, type: 2}
     - target: {fileID: 7936634565600357054, guid: 2d72938ec3ffe6e4290bebb3abd26c12, type: 3}
       propertyPath: m_Name
-      value: DialogTrigger
+      value: Dialog1_Trigger
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2906,6 +2906,8 @@ GameObject:
   - component: {fileID: 1565992001}
   - component: {fileID: 1565992003}
   - component: {fileID: 1565992002}
+  - component: {fileID: 1565992005}
+  - component: {fileID: 1565992004}
   m_Layer: 0
   m_Name: pool
   m_TagString: Untagged
@@ -5937,6 +5939,62 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!19719996 &1565992004
+TilemapCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1565992000}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_MaximumTileChangeCount: 1000
+  m_ExtrusionFactor: 0
+  m_UseDelaunayMesh: 0
+--- !u!114 &1565992005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1565992000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c3b0335cbfe3d34ebedaf5fd8ce8fae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogToPlay: {fileID: 11400000, guid: 32ca0af75d3086c4a97631300685225e, type: 2}
+  triggerType: 0
+  oneTimeOnly: 1
+  playerTag: Player
+  interactKey: 101
+  interactAction: {fileID: 0}
+  interactPrompt: {fileID: 0}
+  debugMode: 0
 --- !u!1 &1580074160
 GameObject:
   m_ObjectHideFlags: 0
@@ -6106,6 +6164,14 @@ PrefabInstance:
     - target: {fileID: 809021476326954873, guid: dc78ed632d6d32b4b94f34026933f01c, type: 3}
       propertyPath: m_Name
       value: DialogCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 976536362833055645, guid: dc78ed632d6d32b4b94f34026933f01c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -4.479889
+      objectReference: {fileID: 0}
+    - target: {fileID: 976536362833055645, guid: dc78ed632d6d32b4b94f34026933f01c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.000045776367
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
