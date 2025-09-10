@@ -26,3 +26,5 @@ ffmpeg -i input_video.mp4 -c:v libx264 -profile:v baseline -level 3.0 -pix_fmt y
 ## 现有视频链接
 
 AIGC_Intro_1.mp4: https://drive.google.com/file/d/1GFXc3j6tSzbtm1SJAOdeHtJyfpr_j59l/view?usp=sharing
+Chapter1.mp4: https://drive.google.com/file/d/1NpueGzjK11WGMowqSMGmHUB-fDYuTatA/view?usp=sharing
+Chapter2.mp4: https://drive.google.com/file/d/1PZ-OaO5tuye-V_b9hgD2_0RwATEUxd3P/view?usp=sharing
