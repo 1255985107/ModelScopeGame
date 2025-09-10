@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 2048
     height: 1071.2001
   m_ShowMode: 4
-  m_Title: Scene
+  m_Title: Project
   m_RootView: {fileID: 9}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -43,8 +43,8 @@ MonoBehaviour:
     y: 288
     width: 478.40002
     height: 733.19995
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 15}
   m_Panes:
   - {fileID: 15}
@@ -100,7 +100,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 117
+  controlID: 99
   draggingID: 0
 --- !u!114 &5
 MonoBehaviour:
@@ -121,8 +121,8 @@ MonoBehaviour:
     y: 0
     width: 772.8
     height: 575.2
-  m_MinSize: {x: 202, y: 221}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 17}
@@ -178,7 +178,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 116
+  controlID: 39
   draggingID: 0
 --- !u!114 &8
 MonoBehaviour:
@@ -302,7 +302,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 52
+  controlID: 40
   draggingID: 0
 --- !u!114 &13
 MonoBehaviour:
@@ -375,7 +375,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Resources/UI
+    - Assets/Scenes/Functional
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -383,27 +383,27 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Resources/UI
+  - Assets/Scenes/Functional
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\UnityProj\ModelScopeGame
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 303.00006}
-    m_SelectedIDs: faba0000
-    m_LastClickedID: 47866
-    m_ExpandedIDs: 00000000eeb70000f0b70000a4ba0000a6ba0000a8ba0000aaba0000b0ba0000c6ba000040bd000000ca9a3b
+    scrollPos: {x: 0, y: 60}
+    m_SelectedIDs: d0a30000
+    m_LastClickedID: 41936
+    m_ExpandedIDs: 000000009ea30000a0a30000a2a30000a4a30000a6a30000a8a30000aaa3000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: Scenes
-      m_OriginalName: Scenes
+      m_Name: UI
+      m_OriginalName: UI
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 47784
+      m_UserData: 41932
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
       m_OriginalEventType: 0
@@ -420,7 +420,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000eeb70000f0b70000
+    m_ExpandedIDs: 000000009ea30000a0a30000a2a30000a4a30000a6a30000a8a30000aaa30000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -447,7 +447,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 1
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -562,7 +562,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: a473ffff5e76ffff
+      m_ExpandedIDs: 7eecffffd8eeffffdaeeffff70f7ffff16fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -942,9 +942,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 164.94853, y: 338.59613, z: -8.234746}
+    m_Target: {x: 460.23547, y: 340.81152, z: -4.0451336}
     speed: 2
-    m_Value: {x: 164.94853, y: 338.59613, z: -8.234746}
+    m_Value: {x: 460.23547, y: 340.81152, z: -4.0451336}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -994,9 +994,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 833.52594
+    m_Target: 414.44968
     speed: 2
-    m_Value: 833.52594
+    m_Value: 414.44968
   m_Ortho:
     m_Target: 1
     speed: 2
