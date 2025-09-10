@@ -1,0 +1,142 @@
+[33mcommit c19b44fe01728f19da0aef00a53d6ca5a1b65d75[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mchapter1[m[33m, [m[1;31morigin/chapter1[m[33m)[m
+Merge: 78b7575 b5ff7a1
+Author: Or4ng3 <imor4ng3@gmail.com>
+Date:   Tue Sep 9 14:59:29 2025 +0800
+
+    Merge branch 'interactive_system' of https://github.com/1255985108/ModelScopeGame into chapter1
+    
+    A
+
+[33mcommit 78b75756bd59f10a79ecce41206cd6d3fdbbc27c[m
+Author: Or4ng3 <imor4ng3@gmail.com>
+Date:   Tue Sep 9 14:38:08 2025 +0800
+
+    chapter1: noise pools added
+
+[33mcommit a48ff53539ef5a204ce753823e9ad67a113d8c22[m
+Author: Or4ng3 <imor4ng3@gmail.com>
+Date:   Tue Sep 9 01:19:44 2025 +0800
+
+    buildt the scene of chapter1 (/Scenes/Level/Level2)
+
+[33mcommit b5ff7a124062dc93db7c8e53a482993c1cef2d70[m[33m ([m[1;31morigin/interactive_system[m[33m, [m[1;31morigin/MainMenu[m[33m)[m
+Author: 1255985107 <1255985107@qq.com>
+Date:   Mon Sep 8 20:39:27 2025 +0800
+
+    add interact logic in CharTest
+
+[33mcommit 59167b8cebc06c95c49bdd12cba5931bd6e24aba[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mchapter0[m[33m)[m
+Author: 1255985107 <1255985107@qq.com>
+Date:   Mon Sep 8 17:58:35 2025 +0800
+
+    add camera follow in level1
+
+[33mcommit b89aacd388957e092e86f246aba3a5c5eced8683[m
+Merge: e9501a5 d33597c
+Author: 1255985107 <1255985107@qq.com>
+Date:   Mon Sep 8 17:02:49 2025 +0800
+
+    Merge branch 'chapter0' into MainMenu
+
+[33mcommit e9501a57dd8026c2193b5cc24539b1c8d4480206[m
+Author: 1255985107 <1255985107@qq.com>
+Date:   Mon Sep 8 16:51:48 2025 +0800
+
+    merge MusicManager in AudioManager & Use in CharTest
+
+[33mcommit d33597c5e8f52570332cdab422332b43e5594cc0[m[33m ([m[1;31morigin/chapter0[m[33m)[m
+Author: Or4ng3 <imor4ng3@gmail.com>
+Date:   Mon Sep 8 16:12:18 2025 +0800
+
+    chapter0: builded the scene, fragments, UI
+
+[33mcommit cb6e105048338d214605e1ec735100ce522915d0[m
+Author: Or4ng3 <imor4ng3@gmail.com>
+Date:   Mon Sep 8 11:21:25 2025 +0800
+
+    initial commit; changed to 1920*1080
+
+[33mcommit 47908dfe59f74f03787b6f62b29d67fdcde953b6[m[33m ([m[1;32mmain[m[33m)[m
+Merge: 5842f34 39fcda7
+Author: jerryhzy <40259389+1255985107@users.noreply.github.com>
+Date:   Sun Sep 7 21:39:01 2025 +0800
+
+    Merge Main from MainMenu
+    
+    0907_2137_MainMenu&CharacterV1
+
+[33mcommit 39fcda769e64202f2113b669ca3d07d31655439a[m[33m ([m[1;32mMainMenu[m[33m)[m
+Author: 1255985107 <1255985107@qq.com>
+Date:   Sun Sep 7 21:36:47 2025 +0800
+
+    Useless Settings
+
+[33mcommit 1f950b7619f13079fa3e967811d1051b9508d3ea[m
+Merge: 7342ea6 614e815
+Author: 1255985107 <1255985107@qq.com>
+Date:   Sun Sep 7 21:32:47 2025 +0800
+
+    Merge branch 'interactive_system' into MainMenu
+
+[33mcommit 7342ea6e187c233c2bc9eea7f247425c153c2f90[m
+Author: 1255985107 <1255985107@qq.com>
+Date:   Sun Sep 7 21:28:29 2025 +0800
+
+    Main Menu & Settings Menu
+
+[33mcommit 614e815e9a6733ca06ac784aa2cedad2f5a7090c[m[33m ([m[1;32minteractive_system[m[33m)[m
+Author: ftj <ftj072514@gmail.com>
+Date:   Sun Sep 7 21:02:41 2025 +0800
+
+    Animator trigger
+
+[33mcommit 6c1230f30fc00830eca59decf28ce82f4e25c2eb[m
+Author: sniper-ft <158261823+Sniper-ft@users.noreply.github.com>
+Date:   Sun Sep 7 00:07:24 2025 +0800
+
+    Delete obj/Debug directory
+    
+    删除不需要提交的文件
+
+[33mcommit a82edaca0fa3d065f6ee0b7e6e9448bb56eda5ef[m
+Author: wft <3230102212@zju.edu.cn>
+Date:   Sun Sep 7 00:04:52 2025 +0800
+
+    修正提交，去掉不需要的文件
+
+[33mcommit b2150100f0b08f1f799205b5efa41a25c55c98ed[m
+Merge: cf350f1 5842f34
+Author: wft <3230102212@zju.edu.cn>
+Date:   Sat Sep 6 22:43:30 2025 +0800
+
+    Merge branch 'main' into interactive_system
+
+[33mcommit cf350f18ac09b1169fbc127d9e98e186acd3a6cb[m
+Author: wft <3230102212@zju.edu.cn>
+Date:   Sat Sep 6 21:35:37 2025 +0800
+
+    v1
+
+[33mcommit 6c7b9f54b99e65047b3f726a186abe02f6bf2941[m
+Author: wft <3230102212@zju.edu.cn>
+Date:   Sat Sep 6 18:18:33 2025 +0800
+
+    v1
+
+[33mcommit 5842f348656615ad98b93896a5da835920f12946[m
+Author: a999999 <1255985107@qq.com>
+Date:   Sat Sep 6 17:50:44 2025 +0800
+
+    fix dictionary in KeymapManager.cs
+
+[33mcommit b2428d1b81cf6cfddb0fe6f7098146c061d24842[m
+Author: a999999 <1255985107@qq.com>
+Date:   Fri Sep 5 20:54:03 2025 +0800
+
+    README add
+
+[33mcommit 90ec79283164ac544e2696dba428d5cefaa05fbc[m
+Author: a999999 <1255985107@qq.com>
+Date:   Fri Sep 5 20:43:14 2025 +0800
+
+    init

@@ -85,45 +85,66 @@ public class DialogTrigger : MonoBehaviour
             interactAction.action.performed -= OnInteractPressed;
         }
     }
-    
-    void OnTriggerEnter(Collider other)
+
+    //void OnTriggerEnter(Collider other)
+    //{
+    //    if (!other.CompareTag(playerTag)) return;
+
+    //    if (debugMode)
+    //    {
+    //        Debug.Log($"DialogTrigger ({name}): 玩家进入触发区域");
+    //    }
+
+    //    playerInRange = true;
+
+    //    if (triggerType == TriggerType.OnTriggerEnter)
+    //    {
+    //        TriggerDialog();
+    //    }
+    //    else if (triggerType == TriggerType.OnInteract)
+    //    {
+    //        ShowInteractPrompt(true);
+    //    }
+    //}
+
+    //void OnTriggerExit(Collider other)
+    //{
+    //    if (!other.CompareTag(playerTag)) return;
+
+    //    if (debugMode)
+    //    {
+    //        Debug.Log($"DialogTrigger ({name}): 玩家离开触发区域");
+    //    }
+
+    //    playerInRange = false;
+
+    //    if (triggerType == TriggerType.OnInteract)
+    //    {
+    //        ShowInteractPrompt(false);
+    //    }
+    //}
+
+    void OnTriggerEnter2D(Collider2D other)
     {
         if (!other.CompareTag(playerTag)) return;
-        
-        if (debugMode)
-        {
-            Debug.Log($"DialogTrigger ({name}): 玩家进入触发区域");
-        }
-        
         playerInRange = true;
-        
+
         if (triggerType == TriggerType.OnTriggerEnter)
-        {
             TriggerDialog();
-        }
         else if (triggerType == TriggerType.OnInteract)
-        {
             ShowInteractPrompt(true);
-        }
     }
-    
-    void OnTriggerExit(Collider other)
+
+    void OnTriggerExit2D(Collider2D other)
     {
         if (!other.CompareTag(playerTag)) return;
-        
-        if (debugMode)
-        {
-            Debug.Log($"DialogTrigger ({name}): 玩家离开触发区域");
-        }
-        
         playerInRange = false;
-        
+
         if (triggerType == TriggerType.OnInteract)
-        {
             ShowInteractPrompt(false);
-        }
     }
-    
+
+
     /// <summary>
     /// 输入动作回调
     /// </summary>
