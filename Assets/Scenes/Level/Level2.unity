@@ -3128,6 +3128,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7810836314815306454, guid: 2d72938ec3ffe6e4290bebb3abd26c12, type: 3}
+      propertyPath: oneTimeOnly
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7810836314815306454, guid: 2d72938ec3ffe6e4290bebb3abd26c12, type: 3}
       propertyPath: dialogToPlay
       value: 
       objectReference: {fileID: 11400000, guid: 9893e7fbf0a3f5f49b3f3bb345d3a9e3, type: 2}
@@ -6434,13 +6438,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1091773735303510939, guid: 74b732b054ad5454484dc29889ad1f47, type: 3}
+      propertyPath: m_Size.x
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5502702804148232786, guid: 74b732b054ad5454484dc29889ad1f47, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.80999994
+      value: 0.46988097
       objectReference: {fileID: 0}
     - target: {fileID: 5502702804148232786, guid: 74b732b054ad5454484dc29889ad1f47, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.6255745
+      value: 0.24159689
       objectReference: {fileID: 0}
     - target: {fileID: 5502702804148232786, guid: 74b732b054ad5454484dc29889ad1f47, type: 3}
       propertyPath: m_LocalScale.z
@@ -6448,11 +6456,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5502702804148232786, guid: 74b732b054ad5454484dc29889ad1f47, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.97
+      value: -7.1401
       objectReference: {fileID: 0}
     - target: {fileID: 5502702804148232786, guid: 74b732b054ad5454484dc29889ad1f47, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.03
+      value: 2.646
       objectReference: {fileID: 0}
     - target: {fileID: 5502702804148232786, guid: 74b732b054ad5454484dc29889ad1f47, type: 3}
       propertyPath: m_LocalPosition.z
