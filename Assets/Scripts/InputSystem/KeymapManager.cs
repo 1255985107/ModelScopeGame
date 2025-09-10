@@ -390,11 +390,12 @@ public class KeymapManager : MonoBehaviour
     {
         switch (function)
         {
-            case Function.MoveUp: return "Move Up";
-            case Function.MoveDown: return "Move Down";
-            case Function.MoveLeft: return "Move Left";
-            case Function.MoveRight: return "Move Right";
-            case Function.ExitMenu: return "Exit Menu";
+            case Function.MoveUp: return "跳跃";
+            case Function.MoveDown: return "向下移动";
+            case Function.MoveLeft: return "向左移动";
+            case Function.MoveRight: return "向右移动";
+            case Function.Interact: return "互动";
+            case Function.ExitMenu: return "退出菜单";
             default: return function.ToString();
         }
     }

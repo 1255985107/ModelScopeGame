@@ -14,6 +14,9 @@ public class MainMenuManager : MonoBehaviour
     [Tooltip("Settings Menu Manager")]
     public SettingsMenuManager settingsMenuManager;
 
+    [Tooltip("Start Game Scene Name")]
+    public string startGameSceneName = "Level2";
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,7 +43,7 @@ public class MainMenuManager : MonoBehaviour
     {
         Debug.Log("Start Button Clicked");
         // Add logic to start the game
-        SceneManager.LoadScene("Level2");
+        SceneManager.LoadScene(startGameSceneName);
     }
 
     void OnSettingsButtonClicked()
