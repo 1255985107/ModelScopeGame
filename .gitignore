@@ -28,6 +28,8 @@ UserSettings/
 
 # Video files
 *.mp4
+*.mp4.meta
 *.mov
+*.mov.meta
 *.avi
 *.mkv

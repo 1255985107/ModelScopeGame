@@ -279,6 +279,10 @@ PrefabInstance:
       propertyPath: m_TargetCamera
       value: 
       objectReference: {fileID: 19080671}
+    - target: {fileID: 5704079215264672240, guid: 823337e4933c7744fa51e9be5043ea75, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7182165831373402422, guid: 823337e4933c7744fa51e9be5043ea75, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
