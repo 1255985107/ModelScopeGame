@@ -2947,7 +2947,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextSceneName: CutScene2
-  nextSceneIndex: 4
+  nextSceneIndex: -1
 --- !u!61 &2049875345
 BoxCollider2D:
   m_ObjectHideFlags: 0
