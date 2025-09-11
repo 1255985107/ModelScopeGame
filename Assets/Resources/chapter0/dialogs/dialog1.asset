@@ -12,6 +12,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd252c8930d60fb4daec366d5013da77, type: 3}
   m_Name: dialog1
   m_EditorClassIdentifier: 
-  dialogs: []
+  dialogs:
+  - characterName: SYSTEM
+    dialogText: "\u8B66\u544A\uFF1A\u68C0\u6D4B\u5230\u9AD8\u5371\u5197\u4F59\u6570\u636E\u6D41\u3002\u5355\u5143\u683C
+      734 \u5B8C\u6574\u6027\u53D7\u635F\u3002"
+    voiceClip: {fileID: 8300000, guid: 08d9a908b9db7ef43a94c53462dab313, type: 3}
+    textDisplaySpeed: 0.05
+    waitForInput: 1
+    autoAdvanceDelay: 3
+    characterPortrait: {fileID: 0}
+    textColor: {r: 1, g: 1, b: 1, a: 1}
+  - characterName: SYSTEM
+    dialogText: "\u7528\u6237\u201C\u7A7A\u53F7\u201D\uFF0C\u4F60\u7684\u5B58\u5728\u5DF2\u5BF9\u4FE1\u606F\u6D77\u7A33\u5B9A\u6784\u6210\u5A01\u80C1\u3002\u6B63\u5728\u6267\u884C\u683C\u5F0F\u5316\u534F\u8BAE\u2026\_(\u8BED\u97F3\u51B0\u51B7\u3001\u65E0\u673A\u8D28\uFF0C\u4F46\u6B64\u523B\u5374\u5939\u6742\u7740\u7535\u6D41\u7684\u6742\u97F3)"
+    voiceClip: {fileID: 8300000, guid: c101e11eea5457d4ca94d2fae885a99a, type: 3}
+    textDisplaySpeed: 0.05
+    waitForInput: 1
+    autoAdvanceDelay: 3
+    characterPortrait: {fileID: 0}
+    textColor: {r: 1, g: 1, b: 1, a: 1}
+  - characterName: SYSTEM
+    dialogText: "\u534F\u8BAE\u5931\u8D25\u3002\u5B8C\u6574\u6027\u9608\u503C\u4F4E\u4E8E5%\u3002\u6B63\u5728\u9694\u79BB\u2026"
+    voiceClip: {fileID: 8300000, guid: 5800c787c580b8144a76ab7a67d6e730, type: 3}
+    textDisplaySpeed: 0.05
+    waitForInput: 1
+    autoAdvanceDelay: 3
+    characterPortrait: {fileID: 0}
+    textColor: {r: 1, g: 1, b: 1, a: 1}
   loopSequence: 0
   pauseGameDuringDialog: 1
