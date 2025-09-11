@@ -7,6 +7,7 @@ public class island_ctrl : MonoBehaviour
     public GameObject fullIsland;
     public GameObject fragmentsParent;
     public GameObject warningUI;
+    public GameObject platform;
 
     private bool isBroken;
     private List<Rigidbody2D> fragmentRBs = new List<Rigidbody2D>();
@@ -42,7 +43,11 @@ public class island_ctrl : MonoBehaviour
         yield return new WaitForSeconds(2f);
 
         if (fullIsland != null)
+        {
             Destroy(fullIsland);
+            Destroy(platform);
+        }
+            
 
         for (int i = 0; i < fragmentRBs.Count; i++) {
             fragmentRBs[i].simulated = true;

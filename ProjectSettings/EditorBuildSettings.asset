@@ -12,19 +12,22 @@ EditorBuildSettings:
     path: Assets/Scenes/Functional/MainMenu.unity
     guid: 9a5defd95a0bf8d448602d1234e913ec
   - enabled: 1
+    path: Assets/Scenes/Level/CutScene1.unity
+    guid: da37a4199535b0d459e4bc46fd7c2199
+  - enabled: 1
     path: Assets/Scenes/Level/Level1.unity
     guid: d5e0dc1661254ed428f69a72d64178b4
+  - enabled: 1
+    path: Assets/Scenes/Level/CutScene2.unity
+    guid: 8369f3e1a86b52346bbd9ca777a16643
   - enabled: 1
     path: Assets/Scenes/Level/Level2.unity
     guid: cc46e064f534a5c488ae47ae4c334b13
   - enabled: 1
+    path: Assets/Scenes/Level/CutScene3.unity
+    guid: b4bb5b8d5c09ce144a14e0620076f71a
+  - enabled: 1
     path: Assets/Scenes/Level/Level3.unity
     guid: 3b119a13b97251744a936c1c5369458c
-  - enabled: 1
-    path: Assets/Scenes/Level/CutScene1.unity
-    guid: da37a4199535b0d459e4bc46fd7c2199
-  - enabled: 1
-    path: Assets/Scenes/Level/CutScene2.unity
-    guid: 8369f3e1a86b52346bbd9ca777a16643
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: d8033bdf56bb9374cb02a7632385430f, type: 3}

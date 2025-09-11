@@ -15,7 +15,7 @@ public class MainMenuManager : MonoBehaviour
     public SettingsMenuManager settingsMenuManager;
 
     [Tooltip("Start Game Scene Name")]
-    public string startGameSceneName = "Level2";
+    public string startGameSceneName = "CutScene1";
 
     // Start is called before the first frame update
     void Start()
