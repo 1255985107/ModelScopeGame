@@ -9,7 +9,7 @@ public class showDataPath : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        dataPathRenderer.enabled = false;
     }
 
     // Update is called once per frame
