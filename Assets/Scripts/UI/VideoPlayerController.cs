@@ -8,7 +8,7 @@ public class VideoPlayerController : MonoBehaviour
 {
     [Header("Video Settings")]
     [SerializeField] private VideoPlayer videoPlayer;
-    [SerializeField] private VideoClip introVideo;
+    [SerializeField] private string introVideoPath; // 相对于StreamingAssets的路径
 	[SerializeField] private string nextSceneName = "MainMenu";
     
     [Header("UI Elements")]
@@ -61,9 +61,9 @@ public class VideoPlayerController : MonoBehaviour
         // - 不是第一次启动游戏
         // - 没有设置视频文件
         
-        if (introVideo == null)
+        if (string.IsNullOrEmpty(introVideoPath))
         {
-            Debug.LogWarning("No intro video assigned, skipping to main menu");
+            Debug.LogWarning("No intro video path assigned, skipping to main menu");
             return true;
         }
         
@@ -94,9 +94,16 @@ public class VideoPlayerController : MonoBehaviour
 
         if (videoPlayer != null)
         {
-            if (introVideo != null)
+            if (!string.IsNullOrEmpty(introVideoPath))
             {
-                videoPlayer.clip = introVideo;
+                // 设置视频源为URL
+                videoPlayer.source = VideoSource.Url;
+                
+                // 构建完整的StreamingAssets路径
+                string fullPath = System.IO.Path.Combine(Application.streamingAssetsPath, introVideoPath);
+                videoPlayer.url = fullPath;
+                
+                Debug.Log($"Loading video from: {fullPath}");
             }
             
             // 订阅视频结束事件
