@@ -783,6 +783,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 154854192000944978, guid: 635a912c9d0ea7a4490bda44d285294b, type: 3}
+      propertyPath: m_EdgeRadius
+      value: 0.02
+      objectReference: {fileID: 0}
     - target: {fileID: 3525133561787509979, guid: 635a912c9d0ea7a4490bda44d285294b, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.4892546
@@ -835,6 +839,38 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4585590747618221585, guid: 635a912c9d0ea7a4490bda44d285294b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.182
+      objectReference: {fileID: 0}
+    - target: {fileID: 4585590747618221585, guid: 635a912c9d0ea7a4490bda44d285294b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.811
+      objectReference: {fileID: 0}
+    - target: {fileID: 5212278363739315715, guid: 635a912c9d0ea7a4490bda44d285294b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.021
+      objectReference: {fileID: 0}
+    - target: {fileID: 5212278363739315715, guid: 635a912c9d0ea7a4490bda44d285294b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.816
+      objectReference: {fileID: 0}
+    - target: {fileID: 5274919257910893309, guid: 635a912c9d0ea7a4490bda44d285294b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.166
+      objectReference: {fileID: 0}
+    - target: {fileID: 5274919257910893309, guid: 635a912c9d0ea7a4490bda44d285294b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.808
+      objectReference: {fileID: 0}
+    - target: {fileID: 7283751484154960271, guid: 635a912c9d0ea7a4490bda44d285294b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.191
+      objectReference: {fileID: 0}
+    - target: {fileID: 7283751484154960271, guid: 635a912c9d0ea7a4490bda44d285294b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.148
+      objectReference: {fileID: 0}
     - target: {fileID: 7384054521315853910, guid: 635a912c9d0ea7a4490bda44d285294b, type: 3}
       propertyPath: jumpForce
       value: 8
@@ -846,6 +882,14 @@ PrefabInstance:
     - target: {fileID: 7384054521315853910, guid: 635a912c9d0ea7a4490bda44d285294b, type: 3}
       propertyPath: walkSpeed
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8280111630845012443, guid: 635a912c9d0ea7a4490bda44d285294b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.133
+      objectReference: {fileID: 0}
+    - target: {fileID: 8280111630845012443, guid: 635a912c9d0ea7a4490bda44d285294b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.168
       objectReference: {fileID: 0}
     - target: {fileID: 8565182761800390622, guid: 635a912c9d0ea7a4490bda44d285294b, type: 3}
       propertyPath: m_Name
@@ -14415,8 +14459,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u6309E\u542F\u52A8\u6570\u636E\u89C6\u7EBF"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: b1054f74c19d67d4595535dd1c92e423, type: 2}
-  m_sharedMaterial: {fileID: -9096393309365850087, guid: b1054f74c19d67d4595535dd1c92e423, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
