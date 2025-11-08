@@ -80,6 +80,11 @@ public class AnimatorTrigger : MonoBehaviour
         bool isIdle    = grounded && h <= H_THRESHOLD;
         bool isJumping = !grounded;
 
+        // 调试信息：追踪动画状态转换
+        // Debug.Log($"[AnimatorTrigger] grounded={grounded} | h={h} | " +
+        //           $"isWalking={isWalking} | isIdle={isIdle} | isJumping={isJumping} | " +
+        //           $"velocity={rb.velocity}");
+
         animator.SetBool(PARAM_IS_WALKING, isWalking);
         animator.SetBool(PARAM_IS_IDLE,    isIdle);
         animator.SetBool(PARAM_IS_JUMPING, isJumping);

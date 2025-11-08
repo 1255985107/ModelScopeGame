@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd252c8930d60fb4daec366d5013da77, type: 3}
+  m_Name: dialog6_2
+  m_EditorClassIdentifier: 
+  dialogs:
+  - characterName: NIGHTMARE_WHISPER
+    dialogText: "\u2026\u9057\u5FD8\u2026\u75DB\u82E6\u2026\u5B64\u72EC\u2026"
+    voiceClip: {fileID: 8300000, guid: 2fa369d09da2f274fb0028c6b3c35ed5, type: 3}
+    textDisplaySpeed: 0.05
+    waitForInput: 1
+    autoAdvanceDelay: 3
+    characterPortrait: {fileID: 0}
+    textColor: {r: 1, g: 1, b: 1, a: 1}
+  - characterName: NULL
+    dialogText: "\u8FD9\u4E9B\u2026\u662F\u2F08\u7C7B\u6700\u6DF1\u5C42\u7684\u6050\u60E7\u2026"
+    voiceClip: {fileID: 8300000, guid: 95f049d1cc1dd544f90aa1b198d58e5d, type: 3}
+    textDisplaySpeed: 0.05
+    waitForInput: 1
+    autoAdvanceDelay: 3
+    characterPortrait: {fileID: 0}
+    textColor: {r: 1, g: 1, b: 1, a: 1}
+  loopSequence: 0
+  pauseGameDuringDialog: 1
