@@ -185,6 +185,28 @@ public class AudioManager : MonoBehaviour
     }
 
     /// <summary>
+    /// 停止当前正在播放的音效
+    /// </summary>
+    public void StopCurrentSFX()
+    {
+        if (sfxSource != null && sfxSource.isPlaying)
+        {
+            sfxSource.Stop();
+        }
+    }
+
+    /// <summary>
+    /// 停止当前播放的语音
+    /// </summary>
+    public void StopVoice()
+    {
+        if (sfxSource != null)
+        {
+            sfxSource.Stop();
+        }
+    }
+
+    /// <summary>
     /// 播放按钮点击音效
     /// </summary>
     private void PlayButtonClick()
@@ -283,15 +305,4 @@ public class AudioManager : MonoBehaviour
     }
 
     #endregion
-
-    /// <summary>
-    /// 停止当前正在播放的音效
-    /// </summary>
-    public void StopCurrentSFX()
-    {
-        if (sfxSource != null && sfxSource.isPlaying)
-        {
-            sfxSource.Stop();
-        }
-    }
 }

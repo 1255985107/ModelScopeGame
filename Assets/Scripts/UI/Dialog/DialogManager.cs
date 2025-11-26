@@ -210,7 +210,7 @@ public class DialogManager : MonoBehaviour
         // 播放语音
         if (dialogData.voiceClip != null && audioManager != null)
         {
-            audioManager.PlaySFXClip(dialogData.voiceClip);
+            audioManager.PlayVoiceClip(dialogData.voiceClip);
         }
         
         // 开始显示文字
@@ -296,6 +296,12 @@ public class DialogManager : MonoBehaviour
         // 如果可以继续，前进到下一个对话
         if (canAdvance)
         {
+            // 停止当前语音
+            if (audioManager != null)
+            {
+                audioManager.StopVoice();
+            }
+            
             currentDialogIndex++;
             ShowCurrentDialog();
         }

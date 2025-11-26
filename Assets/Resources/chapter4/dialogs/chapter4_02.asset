@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd252c8930d60fb4daec366d5013da77, type: 3}
+  m_Name: chapter4_02
+  m_EditorClassIdentifier: 
+  dialogs:
+  - characterName: "\u865A\u62DF\u5076\u50CF"
+    dialogText: "\u8B66\u544A\uFF01\u68C0\u6D4B\u5230\u672A\u6388\u6743\u6570\u636E\u6D41\uFF01\u8BF7\u52FF\u6270\u4E71\u79E9\u5E8F\uFF01\u8BF7\u52FF\u6270\u4E71\u79E9\u5E8F\uFF01"
+    voiceClip: {fileID: 8300000, guid: 266b52c3952d4b94b861092f71d1830d, type: 3}
+    textDisplaySpeed: 0.05
+    waitForInput: 1
+    autoAdvanceDelay: 3
+    characterPortrait: {fileID: 0}
+    textColor: {r: 1, g: 1, b: 1, a: 1}
+  - characterName: NULL
+    dialogText: "\u8FDE\u8FD9\u4E9B\u2026\u90FD\u662F\u5047\u7684\u5417\uFF1F\u5B83\u4EEC\u53EA\u662F\u5728\u91CD\u590D\u7740\u88AB\u8BBE\u5B9A\u7684\u7A0B\u5E8F\u2026"
+    voiceClip: {fileID: 8300000, guid: d741eb299dbef944bb4b4f94a767f628, type: 3}
+    textDisplaySpeed: 0.05
+    waitForInput: 1
+    autoAdvanceDelay: 3
+    characterPortrait: {fileID: 0}
+    textColor: {r: 1, g: 1, b: 1, a: 1}
+  loopSequence: 0
+  pauseGameDuringDialog: 1
