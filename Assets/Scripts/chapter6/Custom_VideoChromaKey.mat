@@ -7,9 +7,9 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: videoScreen
+  m_Name: Custom_VideoChromaKey
   m_Shader: {fileID: 4800000, guid: e94e1a97b05695749afa8ad1b123b7f7, type: 3}
-  m_Parent: {fileID: 2100000, guid: f194a44bd136a1049acf3522c490be07, type: 2}
+  m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -28,6 +28,9 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
-    m_Floats: []
-    m_Colors: []
+    m_Floats:
+    - _Smoothness: 0.1
+    - _Threshold: 0.4
+    m_Colors:
+    - _KeyColor: {r: 1, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []

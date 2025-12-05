@@ -25,6 +25,7 @@ UserSettings/
 *.tmp
 *.user
 *.userprefs
+obj/
 
 # Video files
 *.mp4
