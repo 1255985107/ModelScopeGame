@@ -783,10 +783,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 154854192000944978, guid: 635a912c9d0ea7a4490bda44d285294b, type: 3}
-      propertyPath: m_EdgeRadius
-      value: 0.02
-      objectReference: {fileID: 0}
     - target: {fileID: 3525133561787509979, guid: 635a912c9d0ea7a4490bda44d285294b, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.4892546
@@ -883,6 +879,26 @@ PrefabInstance:
       propertyPath: walkSpeed
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 7384054521315853910, guid: 635a912c9d0ea7a4490bda44d285294b, type: 3}
+      propertyPath: wallCheckLeft
+      value: 
+      objectReference: {fileID: 2114591285}
+    - target: {fileID: 7384054521315853910, guid: 635a912c9d0ea7a4490bda44d285294b, type: 3}
+      propertyPath: wallCheckRight
+      value: 
+      objectReference: {fileID: 583592346}
+    - target: {fileID: 7384054521315853910, guid: 635a912c9d0ea7a4490bda44d285294b, type: 3}
+      propertyPath: groundCheckLeft
+      value: 
+      objectReference: {fileID: 839006355}
+    - target: {fileID: 7384054521315853910, guid: 635a912c9d0ea7a4490bda44d285294b, type: 3}
+      propertyPath: groundCheckRight
+      value: 
+      objectReference: {fileID: 1480661287}
+    - target: {fileID: 7384054521315853910, guid: 635a912c9d0ea7a4490bda44d285294b, type: 3}
+      propertyPath: groundCheckCenter
+      value: 
+      objectReference: {fileID: 1466144711}
     - target: {fileID: 8280111630845012443, guid: 635a912c9d0ea7a4490bda44d285294b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.133
@@ -1616,6 +1632,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 500248650}
   m_CullTransparentMesh: 1
+--- !u!4 &583592346 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8280111630845012443, guid: 635a912c9d0ea7a4490bda44d285294b, type: 3}
+  m_PrefabInstance: {fileID: 201532920}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &583629493
 GameObject:
   m_ObjectHideFlags: 0
@@ -2308,6 +2329,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 837772973}
   m_CullTransparentMesh: 1
+--- !u!4 &839006355 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4585590747618221585, guid: 635a912c9d0ea7a4490bda44d285294b, type: 3}
+  m_PrefabInstance: {fileID: 201532920}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &846871381
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6668,6 +6694,11 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!4 &1466144711 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5212278363739315715, guid: 635a912c9d0ea7a4490bda44d285294b, type: 3}
+  m_PrefabInstance: {fileID: 201532920}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1476261358
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6740,6 +6771,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1157834256}
   m_SourcePrefab: {fileID: 100100000, guid: 2d72938ec3ffe6e4290bebb3abd26c12, type: 3}
+--- !u!4 &1480661287 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5274919257910893309, guid: 635a912c9d0ea7a4490bda44d285294b, type: 3}
+  m_PrefabInstance: {fileID: 201532920}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1484618853 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7936634565600357054, guid: 2d72938ec3ffe6e4290bebb3abd26c12, type: 3}
@@ -6845,14 +6881,6 @@ PrefabInstance:
     - target: {fileID: 3525133561787509979, guid: de307a6b3b3377a43b4aab37a7cdb93b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7384054521315853910, guid: de307a6b3b3377a43b4aab37a7cdb93b, type: 3}
-      propertyPath: jumpForce
-      value: 7.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 7384054521315853910, guid: de307a6b3b3377a43b4aab37a7cdb93b, type: 3}
-      propertyPath: walkSpeed
-      value: 7.5
       objectReference: {fileID: 0}
     - target: {fileID: 8565182761800390622, guid: de307a6b3b3377a43b4aab37a7cdb93b, type: 3}
       propertyPath: m_Name
@@ -14534,6 +14562,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2079329431}
   m_CullTransparentMesh: 1
+--- !u!4 &2114591285 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7283751484154960271, guid: 635a912c9d0ea7a4490bda44d285294b, type: 3}
+  m_PrefabInstance: {fileID: 201532920}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

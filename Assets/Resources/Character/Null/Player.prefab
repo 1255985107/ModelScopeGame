@@ -425,8 +425,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkSpeed: 7.5
-  jumpForce: 7.7
+  jumpForce: 8
   fallMultiplier: 2.5
+  enableDoubleJump: 1
+  doubleJumpForce: 4.5
+  maxJumpCount: 2
+  doubleJumpAudioClip: {fileID: 0}
   groundLayer:
     serializedVersion: 2
     m_Bits: 8

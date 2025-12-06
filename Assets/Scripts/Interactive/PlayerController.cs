@@ -9,6 +9,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float jumpForce = 5f;        // ��Ծ����
     [SerializeField] private float fallMultiplier = 2.5f; // ׹����ٶȱ���
     
+    [Header("Double Jump Settings")]
+    [SerializeField] private bool enableDoubleJump = true;      // 是否启用二段跳
+    [SerializeField] private float doubleJumpForce = 4.5f;      // 二段跳力度
+    [SerializeField] private int maxJumpCount = 2;              // 最大跳跃次数
+    
     [Header("Ground Check")]
     [SerializeField] private LayerMask groundLayer;       // �����
     [SerializeField] private float groundCheckRadius = 0.05f;
@@ -53,6 +58,8 @@ public class PlayerController : MonoBehaviour
 
     public bool isJumpingState = false;      // 用于动画系统
     private bool jumpTriggered = false;      // 用于传递跳跃信号给FixedUpdate
+    private float jumpForceToApply;          
+    private int currentJumpCount = 0;        
     private float coyoteTime = 0.1f;
     private float lastGroundedTime;
 
@@ -89,7 +96,7 @@ public class PlayerController : MonoBehaviour
         // ✅ 正确：在FixedUpdate中执行物理操作
         if (jumpTriggered)
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            rb.velocity = new Vector2(rb.velocity.x, jumpForceToApply);
             jumpTriggered = false;  // 重置信号
         }
     }
@@ -122,6 +129,7 @@ private void CheckGrounded()
         groundedFrameCount = GROUNDED_FRAME_THRESHOLD;
         isGrounded = true;
         wasGrounded = true;
+        currentJumpCount = 0;  // 落地时重置跳跃次数
     }
     else
     {
@@ -144,16 +152,13 @@ private void CheckGrounded()
     }
 }
 
-    // 新增：更新跳跃动画状态（用于AnimatorTrigger读取）
     private void UpdateJumpState()
     {
-        // 在地面上且垂直速度接近0 → 不在跳跃
         if (isGrounded && Mathf.Abs(rb.velocity.y) < 0.5f)
         {
             isJumpingState = false;
         }
         
-        // 垂直速度向上且不在地面 → 正在跳跃
         if (!isGrounded && rb.velocity.y > 0.5f)
         {
             isJumpingState = true;
@@ -211,18 +216,44 @@ private void CheckGrounded()
                 rb.velocity = new Vector2(0f, rb.velocity.y);
         }
 
-        // ✅ 检测跳跃输入，设置信号
+        //  检测跳跃输入，支持二段跳
         if (KeymapManager.Singleton != null && KeymapManager.Singleton.IsReady &&
-            KeymapManager.Singleton.IsKeyPressed(KeymapManager.Function.MoveUp) && isGrounded && canJump)
+            KeymapManager.Singleton.IsKeyPressed(KeymapManager.Function.MoveUp) && canJump)
         {
-            jumpTriggered = true;     // 设置跳跃信号给FixedUpdate
-            isJumpingState = true;    // 设置跳跃状态给AnimatorTrigger
-            lastJumpTime = Time.time;
-            hasTriggeredJumpSuccess = false;
-
-            if (jumpAudioClip != null)
+            bool canPerformJump = false;
+            bool isDoubleJump = false;
+            
+            // 一段跳：在地面上
+            if (isGrounded && currentJumpCount == 0)
             {
-                audioSource.PlayOneShot(jumpAudioClip);
+                canPerformJump = true;
+                jumpForceToApply = jumpForce;
+                currentJumpCount = 1;
+            }
+            // 二段跳：在空中且启用二段跳且还有跳跃次数
+            else if (enableDoubleJump && !isGrounded && currentJumpCount < maxJumpCount)
+            {
+                canPerformJump = true;
+                isDoubleJump = true;
+                jumpForceToApply = doubleJumpForce;
+                currentJumpCount++;
+            }
+            
+            if (canPerformJump)
+            {
+                jumpTriggered = true;     // 设置跳跃信号给FixedUpdate
+                isJumpingState = true;    // 设置跳跃状态给AnimatorTrigger
+                lastJumpTime = Time.time;
+                hasTriggeredJumpSuccess = false;
+
+                // 播放音效
+                AudioClip clipToPlay = isDoubleJump && doubleJumpAudioClip != null 
+                    ? doubleJumpAudioClip 
+                    : jumpAudioClip;
+                if (clipToPlay != null)
+                {
+                    audioSource.PlayOneShot(clipToPlay);
+                }
             }
         }
     }
@@ -302,5 +333,30 @@ private void CheckGrounded()
     public void EnableMovement()
     {
         canMove = true;
+    }
+
+    public void SetDoubleJumpEnabled(bool enabled)
+    {
+        enableDoubleJump = enabled;
+    }
+
+    public bool IsDoubleJumpEnabled()
+    {
+        return enableDoubleJump;
+    }
+
+    public void SetMaxJumpCount(int count)
+    {
+        maxJumpCount = Mathf.Max(1, count);
+    }
+
+    public int GetRemainingJumps()
+    {
+        return maxJumpCount - currentJumpCount;
+    }
+
+    public void ResetJumpCount()
+    {
+        currentJumpCount = 0;
     }
 }
