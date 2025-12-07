@@ -44,6 +44,8 @@ public class CheckpointManager : MonoBehaviour
 
     public void SetSavedCheckpoint(int levelIndex, int checkpointIndex)
     {
+        if (levelIndex < savedLevelIndex) return;
+        if (levelIndex == savedLevelIndex && checkpointIndex <= savedCheckpointIndex) return;
         savedLevelIndex = levelIndex;
         savedCheckpointIndex = checkpointIndex;
     }
