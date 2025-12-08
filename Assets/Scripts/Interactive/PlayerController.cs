@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     [Header("Ground Check")]
     [SerializeField] private LayerMask groundLayer;       // �����
     [SerializeField] private float groundCheckRadius = 0.05f;
-    [SerializeField] private float deathYThreshold = -10f; // �����߶���ֵ
+    [SerializeField] private float deathYThreshold = -100f; // �����߶���ֵ
 
     [SerializeField] private Transform groundCheckLeft;
     [SerializeField] private Transform groundCheckCenter;
