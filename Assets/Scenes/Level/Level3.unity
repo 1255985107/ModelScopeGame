@@ -4510,6 +4510,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50f6afe59b0dc8445ad4c4357bbe7974, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  heartImages: []
+  fullHealthColor: {r: 1, g: 1, b: 1, a: 1}
+  emptyHealthColor: {r: 0.2, g: 0.2, b: 0.2, a: 0.5}
+  damageFlashColor: {r: 1, g: 0, b: 0, a: 1}
+  minFlashSpeed: 2
+  maxFlashSpeed: 10
 --- !u!1 &993941700 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7936634565600357054, guid: 2d72938ec3ffe6e4290bebb3abd26c12, type: 3}
@@ -4791,7 +4797,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88537072e5af175428fbf34012a8f565, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextSceneName: CutScene3
+  nextSceneName: CutScene5
   nextSceneIndex: -1
 --- !u!4 &1108452270
 Transform:
@@ -24231,8 +24237,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u6309E\u542F\u52A8\u6570\u636E\u89C6\u7EBF"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: b1054f74c19d67d4595535dd1c92e423, type: 2}
+  m_sharedMaterial: {fileID: -9096393309365850087, guid: b1054f74c19d67d4595535dd1c92e423, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
