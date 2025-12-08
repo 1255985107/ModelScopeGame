@@ -20,12 +20,13 @@ public class CheckpointManager : MonoBehaviour
         }
         else
         {
-            Destroy(this.gameObject);
+            // Destroy(this.gameObject);
+            Destroy(Singleton.gameObject);
+            Singleton = this;
         }
     }
     void Start()
     {
-        LoadSavedCheckpoint();
     }
 
     // Update is called once per frame
@@ -49,6 +50,16 @@ public class CheckpointManager : MonoBehaviour
         savedLevelIndex = levelIndex;
         savedCheckpointIndex = checkpointIndex;
     }
+
+    public void LoadLevelByIndex(int levelIndex)
+	{
+        if(levelIndex < 0 || levelIndex >= levelNames.Count)
+        {
+            Debug.LogError("Invalid level index: " + levelIndex);
+            return;
+        }
+        SceneManager.LoadScene(levelNames[levelIndex]);
+	}
     
     public void LoadSavedCheckpoint()
     {

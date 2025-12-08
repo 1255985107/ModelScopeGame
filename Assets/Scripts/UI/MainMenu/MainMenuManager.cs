@@ -8,11 +8,13 @@ public class MainMenuManager : MonoBehaviour
 {
     [Header("Buttons")]
     public Button startButton;
+    public Button levelsButton;
     public Button settingsButton;
     public Button quitButton;
 
     [Tooltip("Settings Menu Manager")]
     public SettingsMenuManager settingsMenuManager;
+    public LevelSelectManager levelSelectManager;
 
     [Tooltip("Start Game Scene Name")]
     public string startGameSceneName = "CutScene1";
@@ -21,16 +23,19 @@ public class MainMenuManager : MonoBehaviour
     void Start()
     {
         Debug.Assert(startButton != null, "Start Button is not assigned in the inspector");
+        Debug.Assert(levelsButton != null, "Levels Button is not assigned in the inspector");
         Debug.Assert(settingsButton != null, "Settings Button is not assigned in the inspector");
         Debug.Assert(quitButton != null, "Quit Button is not assigned in the inspector");
         Debug.Assert(settingsMenuManager != null, "SettingsMenuManager is not assigned in the inspector");
 
         startButton.onClick.AddListener(OnStartButtonClicked);
+        levelsButton.onClick.AddListener(OnLevelsButtonClicked);
         settingsButton.onClick.AddListener(OnSettingsButtonClicked);
         quitButton.onClick.AddListener(OnQuitButtonClicked);
         Debug.Log("Listeners added to buttons");
 
         settingsMenuManager.CloseSettingsMenu();
+        levelSelectManager.CloseLevelSelectMenu();
     }
 
     // Update is called once per frame
@@ -44,6 +49,13 @@ public class MainMenuManager : MonoBehaviour
         Debug.Log("Start Button Clicked");
         // Add logic to start the game
         SceneManager.LoadScene(startGameSceneName);
+    }
+
+    void OnLevelsButtonClicked()
+    {
+        Debug.Log("Levels Button Clicked");
+        // Add logic to open levels menu
+        levelSelectManager.OpenLevelSelectMenu();
     }
 
     void OnSettingsButtonClicked()
