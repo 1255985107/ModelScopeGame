@@ -262,19 +262,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eda9ddc1e9672a74dba5cc1ee8457499, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 7
-  jumpForce: 6
+  walkSpeed: 8
+  jumpForce: 8
   fallMultiplier: 2.5
+  enableDoubleJump: 1
+  doubleJumpForce: 4.5
+  maxJumpCount: 2
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
   groundCheckRadius: 0.2
   deathYThreshold: -10
-  groundCheckLeft: {fileID: 0}
-  groundCheckCenter: {fileID: 0}
-  groundCheckRight: {fileID: 0}
-  wallCheckLeft: {fileID: 0}
-  wallCheckRight: {fileID: 0}
+  groundCheckLeft: {fileID: 4585590747618221585}
+  groundCheckCenter: {fileID: 5212278363739315715}
+  groundCheckRight: {fileID: 5274919257910893309}
+  wallCheckLeft: {fileID: 7283751484154960271}
+  wallCheckRight: {fileID: 8280111630845012443}
   jumpAudioClip: {fileID: 8300000, guid: 3f20620e2328508459067c78a3c3deb8, type: 3}
   windAudioClip: {fileID: 8300000, guid: f9bae559497b2a94b8e6504c472a6206, type: 3}
   fallAudioClip: {fileID: 0}
