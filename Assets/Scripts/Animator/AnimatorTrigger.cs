@@ -15,7 +15,7 @@ public class AnimatorTrigger : MonoBehaviour
 
     [Header("Settings")]
     // 阈值设置
-    const float H_THRESHOLD = 0.05f;
+    const float H_THRESHOLD = 0.20f;
 
     void Start()
     {
@@ -75,15 +75,12 @@ public class AnimatorTrigger : MonoBehaviour
         // 基于地面判定决定是否在空中
         bool grounded = playerController != null && playerController.isGrounded;
         float h = Mathf.Abs(rb.velocity.x);
+        float moveInput = playerController.moveInput;
+        bool isJumpingState = playerController.isJumpingState;
 
-        bool isWalking = grounded && h > H_THRESHOLD;
-        bool isIdle    = grounded && h <= H_THRESHOLD;
-        bool isJumping = !grounded;
-
-        // 调试信息：追踪动画状态转换
-        // Debug.Log($"[AnimatorTrigger] grounded={grounded} | h={h} | " +
-        //           $"isWalking={isWalking} | isIdle={isIdle} | isJumping={isJumping} | " +
-        //           $"velocity={rb.velocity}");
+        bool isWalking = grounded && moveInput != 0;
+        bool isJumping = !grounded && isJumpingState;
+        bool isIdle = (grounded && moveInput == 0) || (!isWalking && !isJumping);
 
         animator.SetBool(PARAM_IS_WALKING, isWalking);
         animator.SetBool(PARAM_IS_IDLE,    isIdle);
