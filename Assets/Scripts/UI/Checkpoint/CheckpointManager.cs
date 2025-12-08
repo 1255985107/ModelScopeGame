@@ -13,17 +13,21 @@ public class CheckpointManager : MonoBehaviour
 
     void Awake()
     {
-        if(Singleton == null)
-        {
-            Singleton = this;
-            DontDestroyOnLoad(this.gameObject);
-        }
-        else
-        {
-            // Destroy(this.gameObject);
+        if (Singleton != this)
             Destroy(Singleton.gameObject);
-            Singleton = this;
-        }
+        Singleton = this;
+        DontDestroyOnLoad(this.gameObject);
+        // if(Singleton == null)
+        // {
+        //     Singleton = this;
+        //     DontDestroyOnLoad(this.gameObject);
+        // }
+        // else
+        // {
+        //     // Destroy(this.gameObject);
+        //     Destroy(Singleton.gameObject);
+        //     Singleton = this;
+        // }
     }
     void Start()
     {

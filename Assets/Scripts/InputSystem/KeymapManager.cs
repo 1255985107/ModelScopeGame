@@ -402,9 +402,16 @@ public class KeymapManager : MonoBehaviour
 
     void OnDestroy()
     {
-        if (inputActions != null)
+        // 只有当当前实例是单例时，才负责禁用共享的 InputActionAsset
+        // 这样可以避免场景中被销毁的重复 KeymapManager 禁用全局 InputActions 导致输入失效
+        if (Singleton == this)
         {
-            inputActions.Disable();
+            if (inputActions != null)
+            {
+                inputActions.Disable();
+            }
+            // 清理单例引用
+            Singleton = null;
         }
     }
 }
