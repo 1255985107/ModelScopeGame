@@ -247,9 +247,7 @@ private void CheckGrounded()
                 hasTriggeredJumpSuccess = false;
 
                 // 播放音效
-                AudioClip clipToPlay = isDoubleJump && doubleJumpAudioClip != null 
-                    ? doubleJumpAudioClip 
-                    : jumpAudioClip;
+                AudioClip clipToPlay = jumpAudioClip;
                 if (clipToPlay != null)
                 {
                     audioSource.PlayOneShot(clipToPlay);
