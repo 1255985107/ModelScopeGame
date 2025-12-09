@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogs:
   - characterName: NULL
-    dialogText: "\u8FD9\u91CC...\u662F\u6240\u6709\u2F08\u7684\u68A6\u5883\u5417\uFF1F\u8FD8\u662F...\u6211\u7684\uFF1F"
+    dialogText: "\u8FD9\u91CC\u2026\u662F\u6240\u6709\u4EBA\u7684\u68A6\u5883\u5417\uFF1F\u8FD8\u662F\u2026\u6211\u7684\uFF1F"
     voiceClip: {fileID: 8300000, guid: 29510639c7287b143833866a47928921, type: 3}
     textDisplaySpeed: 0.05
     waitForInput: 1
@@ -22,7 +22,7 @@ MonoBehaviour:
     characterPortrait: {fileID: 0}
     textColor: {r: 1, g: 1, b: 1, a: 1}
   - characterName: NULL
-    dialogText: "\u6BCF\u6B21\u8DF3\u8DC3\u2026\u90FD\u50CF\u5728\u89E6\u78B0\u2F00\u6BB5\u8106\u5F31\u7684\u8FC7\u53BB\u3002"
+    dialogText: "\u6BCF\u6B21\u8DF3\u8DC3\u2026\u90FD\u50CF\u5728\u89E6\u78B0\u4E00\u6BB5\u8106\u5F31\u7684\u8FC7\u53BB\u3002"
     voiceClip: {fileID: 8300000, guid: 2a60318294ef94f4c8d8e5be52912839, type: 3}
     textDisplaySpeed: 0.05
     waitForInput: 1

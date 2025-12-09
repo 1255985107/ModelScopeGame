@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogs:
   - characterName: NULL
-    dialogText: "\u90A3\u4E9B\u7EAF\u771F\u7684\u8BB0\u5FC6\u2026\u5B83\u4EEC\u4F9D\u7136\u5728\u8FD9\u2FA5\u3002\u5B83\u4EEC\u2026\u503C\u5F97\u88AB\u5B88\u62A4\u3002"
+    dialogText: "\u90A3\u4E9B\u7EAF\u771F\u7684\u8BB0\u5FC6\u2026\u5B83\u4EEC\u4F9D\u7136\u5728\u8FD9\u91CC\u3002\u5B83\u4EEC\u2026\u503C\u5F97\u88AB\u5B88\u62A4\u3002"
     voiceClip: {fileID: 8300000, guid: d3748e7b84540ab49bcf37a6f26ca36f, type: 3}
     textDisplaySpeed: 0.05
     waitForInput: 1
