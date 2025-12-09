@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Video;
 
@@ -5,60 +6,74 @@ public class VideoTriggerController : MonoBehaviour
 {
     public VideoPlayer videoPlayer;
 
-    // ±£Ö¤Ö»´¥·¢Ò»´Î
+    [SerializeField] string videoPath;
+
+    // ï¿½ï¿½Ö¤Ö»ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½
     private bool hasPlayed = false;
 
-    // ´æ´¢Íæ¼Ò¶ÔÏóÒýÓÃ£¬ÒÔ±ãÉÔºó°ÑËü"±ä»ØÀ´"
+    // ï¿½æ´¢ï¿½ï¿½Ò¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã£ï¿½ï¿½Ô±ï¿½ï¿½Ôºï¿½ï¿½ï¿½ï¿½"ï¿½ï¿½ï¿½ï¿½ï¿½"
     private GameObject playerObject;
 
     void Start()
     {
         if (videoPlayer != null)
         {
-            // ¶©ÔÄÊÓÆµ²¥·Å½áÊøÊÂ¼þ
+            if (!string.IsNullOrEmpty(videoPath))
+			{
+				videoPlayer.source = VideoSource.Url;
+                
+                // æž„å»ºå®Œæ•´çš„StreamingAssetsè·¯å¾„
+                string fullPath = System.IO.Path.Combine(Application.streamingAssetsPath, videoPath);
+                videoPlayer.url = fullPath;
+                Debug.Log("Trigger video path set to: " + fullPath);
+			}
+            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æµï¿½ï¿½ï¿½Å½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½
             videoPlayer.loopPointReached += OnVideoFinished;
         }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // ¼ì²éÌõ¼þ£ºÎ´²¥·Å¹ý ÇÒ Åöµ½µÄÊÇÍæ¼Ò
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î´ï¿½ï¿½ï¿½Å¹ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         if (!hasPlayed && other.CompareTag("Player"))
         {
-            hasPlayed = true;      // ±ê¼ÇÎªÒÑ´¥·¢
-            playerObject = other.gameObject; // ¼ÇÂ¼Íæ¼ÒÊÇË­
+            hasPlayed = true;      // ï¿½ï¿½ï¿½Îªï¿½Ñ´ï¿½ï¿½ï¿½
+            playerObject = other.gameObject; // ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½Ë­
 
-            // 1. ÈÃÍæ¼ÒÖ±½ÓÏûÊ§£¨Í£ÓÃÎïÌå£©
-            // Í£ÓÃºó£¬Íæ¼Ò¿´²»¼û¡¢½Å±¾Í£Ö¹ÔËÐÐ¡¢ÎïÀíÅö×²Ê§Ð§
+            // 1. ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½Í£ï¿½ï¿½ï¿½ï¿½ï¿½å£©
+            // Í£ï¿½Ãºï¿½ï¿½ï¿½Ò¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å±ï¿½Í£Ö¹ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×²Ê§Ð§
             playerObject.SetActive(false);
 
-            // 2. ²¥·ÅÊÓÆµ
+            // 2. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æµ
             if (videoPlayer != null)
             {
+                Debug.Log("Playing video: " + videoPlayer.url);
                 videoPlayer.Play();
             }
         }
     }
 
-    // ÊÓÆµ²¥·Å½áÊøÊ±×Ô¶¯µ÷ÓÃ
+    // ï¿½ï¿½Æµï¿½ï¿½ï¿½Å½ï¿½ï¿½ï¿½Ê±ï¿½Ô¶ï¿½ï¿½ï¿½ï¿½ï¿½
     void OnVideoFinished(VideoPlayer vp)
     {
-        // 1. Í£Ö¹ÊÓÆµ
+        // 1. Í£Ö¹ï¿½ï¿½Æµ
         vp.Stop();
 
-        // 2. ÈÃÍæ¼ÒÖØÐÂ³öÏÖ
+        Debug.Log("Video finished playing.");
+
+        // 2. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â³ï¿½ï¿½ï¿½
         if (playerObject != null)
         {
             playerObject.SetActive(true);
         }
 
-        // (¿ÉÑ¡) Èç¹ûÄãÏë²¥·ÅÍê°Ñ´¥·¢Æ÷Ò²Ïú»Ù£¬¿ÉÒÔ¼ÓÕâ¾ä£º
+        // (ï¿½ï¿½Ñ¡) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ë²¥ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½ï¿½ï¿½ï¿½ï¿½Ò²ï¿½ï¿½ï¿½Ù£ï¿½ï¿½ï¿½ï¿½Ô¼ï¿½ï¿½ï¿½ä£º
         // Destroy(gameObject); 
     }
 
     void OnDestroy()
     {
-        // ÒÆ³ýÊÂ¼þ¼àÌý£¬·ÀÖ¹±¨´í
+        // ï¿½Æ³ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½
         if (videoPlayer != null)
         {
             videoPlayer.loopPointReached -= OnVideoFinished;
