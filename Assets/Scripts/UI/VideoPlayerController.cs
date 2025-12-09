@@ -26,6 +26,8 @@ public class VideoPlayerController : MonoBehaviour
     private bool hasVideoEnded = false;
     private bool isSkipping = false;
     private Coroutine skipPromptCoroutine;
+    private float videoStartTime = 0f;
+    private const float MIN_PLAY_TIME = 1.5f;
 
     void Start()
     {
@@ -43,6 +45,8 @@ public class VideoPlayerController : MonoBehaviour
         {
             skipPromptCoroutine = StartCoroutine(ShowSkipPromptAfterDelay());
         }
+        
+        videoStartTime = Time.time;
     }
     
     private bool ShouldSkipVideo()
@@ -75,12 +79,16 @@ public class VideoPlayerController : MonoBehaviour
         // 检测任意输入来跳过视频
         if (allowSkip && !isSkipping && !hasVideoEnded)
         {
-            if (Input.anyKeyDown || 
-                Input.GetMouseButtonDown(0) || 
-                Input.GetMouseButtonDown(1) || 
-                Input.GetMouseButtonDown(2))
+            // 只有在视频播放超过1.5秒后才允许跳过
+            if (Time.time - videoStartTime >= MIN_PLAY_TIME)
             {
-                SkipVideo();
+                if (Input.anyKeyDown || 
+                    Input.GetMouseButtonDown(0) || 
+                    Input.GetMouseButtonDown(1) || 
+                    Input.GetMouseButtonDown(2))
+                {
+                    SkipVideo();
+                }
             }
         }
     }
