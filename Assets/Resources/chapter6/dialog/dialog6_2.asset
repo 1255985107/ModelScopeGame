@@ -22,7 +22,7 @@ MonoBehaviour:
     characterPortrait: {fileID: 0}
     textColor: {r: 1, g: 1, b: 1, a: 1}
   - characterName: NULL
-    dialogText: "\u8FD9\u4E9B\u2026\u662F\u2F08\u7C7B\u6700\u6DF1\u5C42\u7684\u6050\u60E7\u2026"
+    dialogText: "\u8FD9\u4E9B\u2026\u662F\u4EBA\u7C7B\u6700\u6DF1\u5C42\u7684\u6050\u60E7\u2026"
     voiceClip: {fileID: 8300000, guid: 95f049d1cc1dd544f90aa1b198d58e5d, type: 3}
     textDisplaySpeed: 0.05
     waitForInput: 1

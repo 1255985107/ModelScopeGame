@@ -280,6 +280,10 @@ PrefabInstance:
       value: Chapter6.mp4
       objectReference: {fileID: 0}
     - target: {fileID: 5054365403922024904, guid: 823337e4933c7744fa51e9be5043ea75, type: 3}
+      propertyPath: m_Url
+      value: Chapter6.mp4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5054365403922024904, guid: 823337e4933c7744fa51e9be5043ea75, type: 3}
       propertyPath: m_TargetCamera
       value: 
       objectReference: {fileID: 336302242}

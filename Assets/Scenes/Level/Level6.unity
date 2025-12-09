@@ -13954,7 +13954,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88537072e5af175428fbf34012a8f565, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextSceneName: Level1
+  nextSceneName: CutScene7
   nextSceneIndex: -1
 --- !u!4 &1752094207
 Transform:
@@ -50836,7 +50836,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2054028245}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: cd88b737ccb0a0143a4f3d49df899c96, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: d36c3f21aeba84498b27e0603ab8d4e7, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}

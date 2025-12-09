@@ -29,3 +29,4 @@ Intro.mp4: https://drive.google.com/file/d/1Q_OBv4VIhouiqx3gmqHje11H3MNa3wKH/vie
 Chapter0.mp4: https://drive.google.com/file/d/1O_Veg285QLRXzOMgJ4GIJGb2rIr0N4ea/view?usp=sharing
 Chapter1.mp4: https://drive.google.com/file/d/14-FbH_D92ujqsxx5rckwveeh3PcZ2yuk/view?usp=sharing
 Chapter2.mp4: https://drive.google.com/file/d/1nC9-o_1fe-hUs3IEZ2ktn4-eQ_Bxh74O/view?usp=sharing
+Chapter6.mp4: https://drive.google.com/file/d/1q27JLSXmSajheab06v9nw4wFtg4EK1R9/view?usp=sharing
