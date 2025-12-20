@@ -272,16 +272,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 32900000, guid: 6d0ac0be3915c2e49957660d3a4f5c8b, type: 3}
     - target: {fileID: 4826433468385971738, guid: 823337e4933c7744fa51e9be5043ea75, type: 3}
-      propertyPath: choiceEnding
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4826433468385971738, guid: 823337e4933c7744fa51e9be5043ea75, type: 3}
       propertyPath: nextSceneName
-      value: ChoiceEnding
+      value: CutScene8
       objectReference: {fileID: 0}
     - target: {fileID: 4826433468385971738, guid: 823337e4933c7744fa51e9be5043ea75, type: 3}
       propertyPath: introVideoPath
-      value: anime9+10+11.mp4
+      value: EndingB.mp4
       objectReference: {fileID: 0}
     - target: {fileID: 5054365403922024904, guid: 823337e4933c7744fa51e9be5043ea75, type: 3}
       propertyPath: m_TargetCamera

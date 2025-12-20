@@ -82,14 +82,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   videoPlayer: {fileID: 5054365403922024904}
-  introVideo: {fileID: 0}
+  introVideoPath: 
   nextSceneName: MainMenu
   skipPrompt: {fileID: 6161071345286648285}
   skipText: {fileID: 0}
   fadeCanvas: {fileID: 7112581909948960390}
   skipPromptDelay: 2
-  fadeInDuration: 1
-  fadeOutDuration: 1
+  fadeInDuration: 0.2
+  fadeOutDuration: 0.2
   allowSkip: 1
   skipVideoInEditor: 0
 --- !u!1 &2035776238799980669
