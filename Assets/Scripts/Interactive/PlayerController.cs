@@ -5,19 +5,19 @@ using System.Collections;
 public class PlayerController : MonoBehaviour
 {
     [Header("Movement Settings")]
-    [SerializeField] private float walkSpeed = 2f;        // ���������ٶ�
-    [SerializeField] private float jumpForce = 5f;        // ��Ծ����
-    [SerializeField] private float fallMultiplier = 2.5f; // ׹����ٶȱ���
+    [SerializeField] private float walkSpeed = 2f;        // 锟斤拷锟斤拷锟斤拷锟斤拷锟劫讹拷
+    [SerializeField] private float jumpForce = 5f;        // 锟斤拷跃锟斤拷锟斤拷
+    [SerializeField] private float fallMultiplier = 2.5f; // 坠锟斤拷锟斤拷俣缺锟斤拷锟�
     
     [Header("Double Jump Settings")]
-    [SerializeField] private bool enableDoubleJump = true;      // 是否启用二段跳
-    [SerializeField] private float doubleJumpForce = 4.5f;      // 二段跳力度
-    [SerializeField] private int maxJumpCount = 2;              // 最大跳跃次数
+    [SerializeField] private bool enableDoubleJump = true;      // 鏄惁鍚敤浜屾璺�
+    [SerializeField] private float doubleJumpForce = 4.5f;      // 浜屾璺冲姏搴�
+    [SerializeField] private int maxJumpCount = 2;              // 鏈€澶ц烦璺冩鏁�
     
     [Header("Ground Check")]
-    [SerializeField] private LayerMask groundLayer;       // �����
+    [SerializeField] private LayerMask groundLayer;       // 锟斤拷锟斤拷锟�
     [SerializeField] private float groundCheckRadius = 0.05f;
-    [SerializeField] private float deathYThreshold = -100f; // �����߶���ֵ
+    [SerializeField] private float deathYThreshold = -100f; // 锟斤拷锟斤拷锟竭讹拷锟斤拷值
 
     [SerializeField] private Transform groundCheckLeft;
     [SerializeField] private Transform groundCheckCenter;
@@ -27,17 +27,17 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform wallCheckRight;
     
     [Header("Audio")]
-    [SerializeField] private AudioClip jumpAudioClip;  // ��Ծ��Ч
-    [SerializeField] private AudioClip windAudioClip;  // ������Ч
-    [SerializeField] private AudioClip fallAudioClip;  // ������Ч
-    [SerializeField] private AudioClip runAudioClip;   // �ܲ���Ч
-    private AudioSource audioSource;                   // ���ڲ�����Ч
-    private AudioSource runAudioSource;                   // ����ѭ�������ܲ���Ч
+    [SerializeField] private AudioClip jumpAudioClip;  // 锟斤拷跃锟斤拷效
+    [SerializeField] private AudioClip windAudioClip;  // 锟斤拷锟斤拷锟斤拷效
+    [SerializeField] private AudioClip fallAudioClip;  // 锟斤拷锟斤拷锟斤拷效
+    [SerializeField] private AudioClip runAudioClip;   // 锟杰诧拷锟斤拷效
+    private AudioSource audioSource;                   // 锟斤拷锟节诧拷锟斤拷锟斤拷效
+    private AudioSource runAudioSource;                   // 锟斤拷锟斤拷循锟斤拷锟斤拷锟斤拷锟杰诧拷锟斤拷效
 
     [Header("Events")]
-    public UnityEvent onDeath;           // �����¼�
-    public UnityEvent onSuccessfulJump;  // �ɹ���Ծ�¼�
-    public UnityEvent onInteract;        // �����¼�
+    public UnityEvent onDeath;           // 锟斤拷锟斤拷锟铰硷拷
+    public UnityEvent onSuccessfulJump;  // 锟缴癸拷锟斤拷跃锟铰硷拷
+    public UnityEvent onInteract;        // 锟斤拷锟斤拷锟铰硷拷
     
     private Rigidbody2D rb;
     public bool isGrounded;
@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
     private bool canJump = true;
     private bool canMove = true;
     private float lastJumpTime;
-    private const float SUCCESSFUL_JUMP_HEIGHT = 2f; // �ж��ɹ���Ծ�ĸ߶�
+    private const float SUCCESSFUL_JUMP_HEIGHT = 2f; // 锟叫讹拷锟缴癸拷锟斤拷跃锟侥高讹拷
     private float initialY;
     private bool hasTriggeredJumpSuccess;
 
@@ -56,8 +56,8 @@ public class PlayerController : MonoBehaviour
     public float moveInput;
     public float jumpInput;
 
-    public bool isJumpingState = false;      // 用于动画系统
-    private bool jumpTriggered = false;      // 用于传递跳跃信号给FixedUpdate
+    public bool isJumpingState = false;      // 鐢ㄤ簬鍔ㄧ敾绯荤粺
+    private bool jumpTriggered = false;      // 鐢ㄤ簬浼犻€掕烦璺冧俊鍙风粰FixedUpdate
     private float jumpForceToApply;          
     private int currentJumpCount = 0;        
     private float coyoteTime = 0.1f;
@@ -83,8 +83,12 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (ChatManager.IsUIFocused)
+        {
+            return; 
+        }
         CheckGrounded();
-        UpdateJumpState();   // 新增：更新跳跃动画状态
+        UpdateJumpState();   // 鏂板锛氭洿鏂拌烦璺冨姩鐢荤姸鎬�
         HandleMovement();
         HandleRunSound();
         CheckDeath();
@@ -93,27 +97,27 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        // ✅ 正确：在FixedUpdate中执行物理操作
+        // 鉁� 姝ｇ‘锛氬湪FixedUpdate涓墽琛岀墿鐞嗘搷浣�
         if (jumpTriggered)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForceToApply);
-            jumpTriggered = false;  // 重置信号
+            jumpTriggered = false;  // 閲嶇疆淇″彿
         }
     }
 
 private bool wasGrounded = false;
 private int groundedFrameCount = 0;
-private const int GROUNDED_FRAME_THRESHOLD = 2;  // 需要连续2帧才确认离地
+private const int GROUNDED_FRAME_THRESHOLD = 2;  // 闇€瑕佽繛缁�2甯ф墠纭绂诲湴
 
 private void CheckGrounded()
 {
     Collider2D playerCollider = GetComponent<Collider2D>();
     float playerBottom = playerCollider.bounds.min.y;
     
-    // 使用 Raycast 替代 OverlapCircle，更稳定
+    // 浣跨敤 Raycast 鏇夸唬 OverlapCircle锛屾洿绋冲畾
     bool hitGround = false;
     
-    // 从三个点向下发射射线
+    // 浠庝笁涓偣鍚戜笅鍙戝皠灏勭嚎
     RaycastHit2D hitLeft = Physics2D.Raycast(groundCheckLeft.position, Vector2.down, groundCheckRadius, groundLayer);
     RaycastHit2D hitCenter = Physics2D.Raycast(groundCheckCenter.position, Vector2.down, groundCheckRadius, groundLayer);
     RaycastHit2D hitRight = Physics2D.Raycast(groundCheckRight.position, Vector2.down, groundCheckRadius, groundLayer);
@@ -123,20 +127,20 @@ private void CheckGrounded()
     hitGround = hitLeft.collider != null || hitCenter.collider != null || hitRight.collider != null;
     hit_left_wall = wallhitLeft.collider != null;
     hit_right_wall = wallhitRight.collider != null;
-    // 添加缓冲逻辑，防止单帧抖动
+    // 娣诲姞缂撳啿閫昏緫锛岄槻姝㈠崟甯ф姈鍔�
     if (hitGround)
     {
         groundedFrameCount = GROUNDED_FRAME_THRESHOLD;
         isGrounded = true;
         wasGrounded = true;
-        currentJumpCount = 0;  // 落地时重置跳跃次数
+        currentJumpCount = 0;  // 钀藉湴鏃堕噸缃烦璺冩鏁�
     }
     else
     {
         if (groundedFrameCount > 0)
         {
             groundedFrameCount--;
-            isGrounded = true;  // 短时间内仍然视为在地面
+            isGrounded = true;  // 鐭椂闂村唴浠嶇劧瑙嗕负鍦ㄥ湴闈�
         }
         else
         {
@@ -145,7 +149,7 @@ private void CheckGrounded()
         }
     }
     
-    // 记录最后在地面的时间
+    // 璁板綍鏈€鍚庡湪鍦伴潰鐨勬椂闂�
     if (isGrounded)
     {
         lastGroundedTime = Time.time;
@@ -164,7 +168,7 @@ private void CheckGrounded()
             isJumpingState = true;
         }
         
-        // 刚离开地面就快速下落 → 滑落而非跳跃
+        // 鍒氱寮€鍦伴潰灏卞揩閫熶笅钀� 鈫� 婊戣惤鑰岄潪璺宠穬
         if (!isGrounded && Time.time - lastGroundedTime < coyoteTime && rb.velocity.y < -1f)
         {
             isJumpingState = false;
@@ -216,21 +220,21 @@ private void CheckGrounded()
                 rb.velocity = new Vector2(0f, rb.velocity.y);
         }
 
-        //  检测跳跃输入，支持二段跳
+        //  妫€娴嬭烦璺冭緭鍏ワ紝鏀寔浜屾璺�
         if (KeymapManager.Singleton != null && KeymapManager.Singleton.IsReady &&
             KeymapManager.Singleton.IsKeyPressed(KeymapManager.Function.MoveUp) && canJump)
         {
             bool canPerformJump = false;
             bool isDoubleJump = false;
             
-            // 一段跳：在地面上
+            // 涓€娈佃烦锛氬湪鍦伴潰涓�
             if (isGrounded && currentJumpCount == 0)
             {
                 canPerformJump = true;
                 jumpForceToApply = jumpForce;
                 currentJumpCount = 1;
             }
-            // 二段跳：在空中且启用二段跳且还有跳跃次数
+            // 浜屾璺筹細鍦ㄧ┖涓笖鍚敤浜屾璺充笖杩樻湁璺宠穬娆℃暟
             else if (enableDoubleJump && !isGrounded && currentJumpCount < maxJumpCount)
             {
                 canPerformJump = true;
@@ -241,12 +245,12 @@ private void CheckGrounded()
             
             if (canPerformJump)
             {
-                jumpTriggered = true;     // 设置跳跃信号给FixedUpdate
-                isJumpingState = true;    // 设置跳跃状态给AnimatorTrigger
+                jumpTriggered = true;     // 璁剧疆璺宠穬淇″彿缁橣ixedUpdate
+                isJumpingState = true;    // 璁剧疆璺宠穬鐘舵€佺粰AnimatorTrigger
                 lastJumpTime = Time.time;
                 hasTriggeredJumpSuccess = false;
 
-                // 播放音效
+                // 鎾斁闊虫晥
                 AudioClip clipToPlay = jumpAudioClip;
                 if (clipToPlay != null)
                 {
@@ -303,7 +307,7 @@ private void CheckGrounded()
             {
                 audioSource.PlayOneShot(fallAudioClip);
             }
-            //ֹͣ׹��
+            //停止坠锟斤拷
             rb.velocity = Vector2.zero;
             rb.gravityScale = 0f;
             onDeath?.Invoke();
